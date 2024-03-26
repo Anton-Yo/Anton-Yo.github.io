@@ -2,9 +2,8 @@
 
 body {
     background-color: rgba(231, 231, 231, 0.712);
-    /* background-color: white; */
     font-family: 'Roboto', sans-serif;
-    font-weight: 400px;
+    font-weight: 400;
 }
 
 h1 {
@@ -174,7 +173,6 @@ nav {
 }
 
 .category-title {
-    /* background-color: pink; */
     text-align: center;
     width: fit-content; 
     padding: 2px;
@@ -206,7 +204,7 @@ header {
 
 
 /* ChatGPT told me of the @media rule  */
-@media (max-width: 1288px) {
+@media (max-width: 1200px) {
     .module-list {
         flex-direction: column;
     }
@@ -277,19 +275,19 @@ header {
 }
 
 #VR-background {
-    background-color:  rgba(250, 149, 17, 0.651);
+    background-color:  rgba(253, 154, 25, 0.651);
 }
 
 #PCG-background {
-    background-color: rgba(208, 127, 248, 0.74);
+    background-color: rgba(216, 142, 253, 0.774);
 }
 
 #brandino-background {
-    background-color: rgba(241, 93, 24, 0.616);
+    background-color: rgba(248, 108, 43, 0.664);
 }
 
 #banana-background {
-    background-color: rgba(255, 72, 102, 0.582);
+    background-color: rgba(252, 108, 132, 0.795);
 }
 
 .white-text {
@@ -304,7 +302,6 @@ header {
 
 .info-title {
     margin: auto;
-    margin-top: none;
     text-align: center;
     display: block;
     font-size: 240%; 
@@ -463,8 +460,9 @@ h4 {
     src: url('Fonts/SnappyServiceNF.ttf');
 }
 
+/* if the roboto font shows up the weight is wrong. But it requires javascript to fix and isn't worth it rn*/
 #soup-title {
-    font-family: SnappyServiceNF;
+    font-family: SnappyServiceNF, 'Roboto', sans-serif;
     font-weight: 400;
 }
 
