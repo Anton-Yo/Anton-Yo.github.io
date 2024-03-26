@@ -460,17 +460,7 @@ h4 {
 
 @font-face {
     font-family: 'SnappyServiceNF';
-    src: url('fonts/SnappyServiceNF.ttf');
-}
-
-@font-face {
-    font-family: 'MadimiOne';
-    src: url('fonts/MadimiOne-Regular.ttf')
-}
-
-@font-face {
-    font-family: 'Marker';
-    src: url('fonts/PermanentMarker-Regular.ttf')
+    src: url('Fonts/SnappyServiceNF.ttf');
 }
 
 #soup-title {
