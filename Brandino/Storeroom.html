@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>The Brandino</title>
+<link href="brandino-styles.css" rel="stylesheet"/>
+<script src="js/jquery.js"></script>
+<script src="js/notebookHTML.js"></script>
+<script src="js/notebook.js"></script>
+<script src="js/ping.js"></script>
+<script src="js/preload.js"></script>
+<script>
+
+
+$(document).ready(function() { 
+    $("#character").html("Storeroom");
+    
+    $("#text").html(localStorage.getItem("StoreroomVisited") ? "What can I find in here??" : "Did I miss something last time? I must recheck to be sure");
+    
+    $('#backButton').on("click", function() {
+        window.location = "SecondFloor.html";
+    })
+
+    $(document).on({ // add animation to door class
+        mouseenter: function() {
+            $(this).addClass('pulse');
+           
+        },
+        mouseleave: function() {
+            $(this).removeClass('pulse');
+        }
+    }, '.storeroom-item');
+
+
+    $("#rum").on("click", function() { //display message on each item click
+        updateText("Rum Barrels","Unsurprisingly the barrels are all empty... Why is the rum always gone??");
+    })
+
+    $("#weapon").on("click", function() {
+        updateText("Knife","A polished knife, this looks suspiciously like a murder weapon");
+        localStorage.setItem("Q4-Other", true);
+    })
+
+    $("#pirateHat").on("click", function() { //display message on each item click
+        updateText("Pirate Hat", "A pirate always has to look his best, and that means he needs a hat");
+    })
+
+    $("#compass").on("click", function() { //display message on each item click
+        updateText("Compass", "This compass is the First Mate's. Why did he leave it here?");
+    })
+
+    function updateText(name, string) { //easy format for updating text
+        $("#text").html(string);
+        $("h2").html(name);
+    }
+});
+
+</script>
+</head>
+<body>
+
+<div id="stage"> 
+
+    <div id="menuStuff"> </div>
+
+    <div id="items">
+        <div id="rum" class="storeroom-item">
+            <img  src="Images/rum.png">
+        </div>
+
+        <div id="weapon" class="storeroom-item">
+            <img  src="Images/knife.png">
+        </div>
+
+        <div id="pirateHat" class="storeroom-item">
+            <img src="Images/hat.png">
+        </div>
+
+        <div id="compass" class="storeroom-item">
+            <img src="Images/compass.png">
+        </div>
+    </div>
+    
+    <div id="dialogueBox" class="bTest"> 
+        <div id="entireBox">
+            <div id="dialogueHeader"> <h2 id="character">  </h2>  </div>
+            <div id="text"> </div>
+        </div>
+</div>
+
+</body>
+</html>

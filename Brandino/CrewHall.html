@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>The Brandino</title>
+<link href="brandino-styles.css" rel="stylesheet"/>
+<script src="js/jquery.js"></script>
+<script src="js/notebookHTML.js"></script>
+<script src="js/notebook.js"></script>
+<script src="js/ping.js"></script>
+<script src="js/preload.js"></script>
+<script>
+
+
+$(document).ready(function() { 
+
+    $("#character").html("Crew Hall");
+
+    $("#backButton").on("click", function() {
+        
+        window.location = "SecondFloor.html";
+    })
+
+    $('.speechbubble').hide();
+
+    $(document).on({
+        mouseenter: function() {
+            $(this).addClass('pulse');
+           
+        },
+        mouseleave: function() {
+            $(this).removeClass('pulse');
+        }
+    }, '.door');
+
+    $(document).on({
+        mouseenter: function() {
+            $(this).addClass('pulse'); 
+            $('.speechbubble', this).show();
+        },
+        mouseleave: function() {
+            $(this).removeClass('pulse');
+            $('.speechbubble', this).hide();
+        }
+    }, '.pirate');
+
+    $("#arm-pirate").on("click", function() {
+        window.location = "ArmWrestle.html";
+    })
+
+    $("#dice-pirate").on("click", function() {
+        window.location = "DiceGame.html";
+    })
+
+    $("#quiz-pirate").on("click", function() {
+        window.location = "Quiz.html";
+    })
+
+    $("#chat-pirate").on("click", function() {
+        window.location = "CasualChat.html";
+    })
+
+    $(document).on({
+        mouseenter: function() {
+           $(this).css("background-color", "red");
+        },
+        mouseleave: function() {
+            $(this).css("background-color", "");
+        }
+    }, '#notebookButton');
+   
+});
+
+</script>
+</head>
+<body>
+
+<div id="stage"> 
+
+    <div id="menuStuff"> </div>
+
+    <img class="background-image" src="Images/crewhall.png"> 
+
+    <!-- <div id="interactable-layer"> 
+        <div class="door front-door">  </div>
+        <div class="door back-door">  </div>
+        <div id="notebookButton">
+            <button> Notebook </button>
+        </div>
+    </div> -->
+
+    <img id="tables" src="Images/Tables.png">
+    <img id="banister" src="Images/banister.png">
+
+    <div class="pirate" id="dice-pirate"> 
+        <img class="piratepic pointer" src="Images/Dice.png"> 
+    </div>
+
+    <div class="pirate" id="arm-pirate">
+        <img class="piratepic pointer" src="Images/AWPirate.png">
+    </div>
+
+    <div class="pirate" id="quiz-pirate">
+         <img class="piratepic pointer" src="Images/Quiz.png"> 
+    </div>
+    
+    <div class="pirate" id="chat-pirate">
+        <img class="piratepic pointer" src="Images/CasualChat.png"> 
+   </div>
+    
+    <div id="dialogueBox" class="bTest"> 
+        <div id="entireBox">
+            <div id="dialogueHeader"> <h2 id="character">  </h2>  </div>
+            <div id="text"> Who should I talk to first? </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

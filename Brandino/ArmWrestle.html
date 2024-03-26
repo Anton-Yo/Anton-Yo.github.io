@@ -1,0 +1,197 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>The Brandino</title>
+<link href="brandino-styles.css" rel="stylesheet"/>
+<script src="js/jquery.js"></script>
+<script src="js/notebookHTML.js"></script>
+<script src="js/notebook.js"></script>
+<script src="js/preload.js"></script>
+<script src="js/ping.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>  
+<script>
+
+$(document).ready(function() { 
+    
+    let pageState = 0;
+    let pageStateCanIncrease = true;
+    let startAW = false;
+    let count = 0;
+    let AWFinished = false;
+    let name = localStorage.getItem("name");
+    let lost = false;
+
+    $("#character").html(name);
+
+    $('#dialogueBox').on("click", function() {
+        events();
+    })
+
+    $("#backButton").on("click", function() {
+        window.location = 'CrewHall.html';
+    })
+
+    $("#wrestle-scene, #char-interview").hide();
+
+
+    function events() {
+    
+
+    if(pageState == 0) {
+        $("#character").html("Muscley Pirate");
+       updateText("Hey duddde");
+     
+    } 
+    
+    if(pageState == 1) {
+        updateText("Want to have an arm wrestle with me?? I can only promise information to the strongest crews members on the ship");
+   
+    } 
+
+    if(pageState == 2) {
+        updateText("Ill take that as a yes, my muscley compatriot");
+     
+    } 
+    
+    if(pageState == 3 && !lost) {
+        pageStateCanIncrease = false;
+
+        $(".pirate").fadeOut(500, function() {
+            $("#wrestle-scene, #char-interview").fadeIn(400, function() {
+                // pageStateCanIncrease = false;
+                updateText("Time to get this win!");
+                console.log("Competition start");
+            });
+        }) 
+    }
+    
+    if(pageState == 4) {
+       
+      
+       pageStateCanIncrease = false;
+
+        $("#wrestle-scene, #char-interview").fadeOut(400, function() {
+        $(".pirate").fadeIn(500, function() {
+            pageStateCanIncrease = true;
+                pageState++; 
+        });
+            updateText("You Won!!");
+            localStorage.setItem("Q1-Other", true);
+        }) 
+    }
+
+
+    if(pageState == 5) {    //skip 5 just becuase there is a glitch and wasting time trying to fix. It'll work like this
+        // updateText("Hey, that was a fair fight, Ill tell you what I know");
+
+    }
+
+    if(pageState == 6) {
+        updateText("Hey buddy, that was a fair fight, Ill tell you what I know");
+    }
+
+    if(pageState == 7) {
+        updateText("I like to keep tabs on other combat types around here on the ship, to measure strength against strength ya know. Only two out of the three suspects are combat types, the Gunner and the First Mate. ");
+    }
+
+    if(pageState == 8) {
+        updateText(" The cook tries his best but his strength is stew <em> HARHAR <em>. I've also heard that the murder weapon was a kitchen knife, and its still sitting in the storeroom. What's weird laddy is that the Gunner only ever uses guns to fight, never seen her once wield a knife.");
+    }
+
+    if(pageState == 9) {
+        updateText("Now go on get out of here, I've gotta go work on my strength after losing to a weakling like you harhar!")
+    }
+
+    console.log(pageState);
+    if(pageStateCanIncrease) {
+        pageState++;
+        console.log(pageState);
+    } 
+
+   
+}
+
+$(document).on('keydown', function(event) { //can press escape to bring up/close notebook
+        if(event.code == "Space") {
+            if(startAW && !AWFinished) {
+               count++;
+               updateText(count);
+               $("#leftAW, #rightAW").stop().effect("bounce", {times: 1, distance: 5}, 100);
+            }
+        }
+});
+
+$('#AW-start').on("click", function() { //after start button clicked, start the count check and timer
+    $('#AW-start').fadeOut(100);
+    startAW = true; 
+    
+    setTimeout(function() {
+    checkIfLost()}, 5100);
+})
+
+function checkIfLost() {
+    AWFinished = true;
+    if(count < 35) {
+        $("#wrestle-scene, #char-interview").fadeOut(400, function() {
+        $(".pirate").fadeIn(500, function() {
+            updateText("Yarrgh, shame you couldnt beat my muscley self. Not many on this ship can, but hey if you want to try again Im always down to tangle. Come see me again when I've rested a bit")
+            lost = true;
+        });
+    });
+       
+    } else {
+        pageStateCanIncrease = true;
+        pageState++;
+        events();
+    }
+
+}
+
+function updateText(string) {
+    $("#text").html(string);
+}
+  
+});
+
+</script>
+</head>
+<body>
+
+<div id="stage"> 
+
+    <div id="menuStuff"> </div>
+
+    <img class="background-image" src="Images/crewhall.png"> 
+    
+    <div class="pirate" id="wrestle-pirate">
+         <img class="piratepic" src="Images/AWPirate.png"> 
+    </div>
+
+    <div id="wrestle-scene">
+        <div id="pirates-armwrestle">
+            <div  id="leftAW"> <button id="AW-start"> READY? </button> </div>
+
+            <!-- <div id ="rightAW"></div> -->
+        </div>
+
+    </div>
+
+    <div id="char-interview" style="font-size: 130%; ">
+        <div class="canvasStyle" style="margin-top: 3px;">
+            <h2 id="identifier"  style="width: 100%; padding-top: 10px;">Click the Space bar to PUSH!</h2> 
+        </div>
+    </div>
+
+    
+    
+    <div id="dialogueBox" class="bTest"> 
+        <div id="entireBox">
+            <div id="dialogueHeader"> <h2 id="character"> </h2>  </div>
+            <div id="text"> This pirate seems to know something, but how can I convince him to tell me? </div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

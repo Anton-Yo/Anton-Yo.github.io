@@ -1,0 +1,1231 @@
+@import url('https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=Roboto&display=swap');
+
+
+#stage {
+    width: 1000px;
+    height: 700px;
+    background-color: black;
+    margin: auto;
+    position: relative;
+    display: none;
+}
+
+#dialogueBox {
+    position: absolute;
+    bottom: 0px;
+    left: 0.5%;
+    right: 0.5%;
+    height: 125px;
+    border: 5px solid black;
+    border-radius: 10px;
+    margin: auto;
+    padding: 5px;
+    z-index: 2;
+}
+
+#dialogueBoxInterview {
+    position: absolute;
+    bottom: 0px;
+    left: 0.5%;
+    right: 0.5%;
+    height: 150px;
+    border: 5px solid black;
+    border-radius: 10px;
+    margin: auto;
+    padding: 5px;
+}
+
+#interview-box {
+    background-color: rgba(255, 255, 255, 0.7);
+    width: 100%;
+    padding: 5px;
+    margin-left: -5px;
+    margin-top: -5px;
+    height: 150px;
+}
+
+#dialogueBox:hover, #dialogueBoxInterview:hover {
+    cursor: pointer;
+}
+
+.background-image {
+    width: 100%;
+    height: 100%;
+}
+
+#interactable-layer {
+    position: absolute;
+    top: 0;
+    width: 1000px;
+    height: 555px;
+}
+
+.door {
+    /* background-color: Green; */
+    position: absolute;
+    cursor: pointer;
+}
+
+.front-door {
+    width: 30px;
+    height: 60px;
+    top: 100px;
+    right: 100px;
+}
+
+.back-door {
+    width: 40px;
+    height: 100px;
+    top: 100px;
+    right: 200px;
+}
+
+
+.pulse {
+    animation-name: pulse;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes pulse {
+    to {
+     transform: scale(1, 1);
+    }
+
+    50% {
+     transform: scale(1.03, 1.03);
+    }
+
+    from {
+    transform: scale(1, 1);
+    }
+}
+
+#intro-box {
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    width: 60%;
+    height: 60%;
+    left: 15%;
+    right: 15%;
+    top: 10%;
+    margin: auto;
+}
+
+#intro-text {
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    text-decoration: underline;
+    height: 50%;
+    margin: auto;
+    text-align: center;
+    font-size: 500%;
+}
+
+#startButton {
+    background-color: maroon;
+    font-size: 200%;
+    height: 20%;
+    width: 50%;
+    margin: auto;
+    margin-top: 50%;
+    padding: 20px;
+    color: white;
+    border: 1px solid black;
+}
+
+#startButton:hover {
+    background-color: green;
+    transition: 0.3s;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.piratepic {
+    width: 100%;
+    height: 100%;
+}
+
+#tables {
+    z-index: 2;
+    position: absolute;
+    left: 0;
+    top: 440px;
+}
+
+#banister {
+    z-index: 2;
+    position: absolute;
+    left: 203px;
+    top: 106px;
+}
+
+#arm-pirate {
+    position: absolute;
+    left: 8%;
+    bottom: 15%;
+    width: 200px;
+    height: 350px;
+}
+
+#dice-pirate { 
+    position: absolute;
+    right: 8%;
+    bottom: 18%;
+    width: 200px;
+    height: 350px;
+}
+
+#quiz-pirate {
+    position: absolute;
+    left: 40%;
+    bottom: 10%;
+    width: 200px;
+    height: 350px;
+}
+
+#chat-pirate {
+    position: absolute;
+    left: 25%;
+    top: 3%;
+    width: 100px;
+    height: 200px;
+}
+
+.speechbubble {
+    position: absolute;
+    top: -5%;
+    right: -5%;
+    background-color:pink;
+}
+
+#notebookButton {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 150px;
+    height: 66px;
+    margin: 2px;
+    z-index: 2;
+    border: 1px solid black;
+   
+}
+
+#notebookButton > button {
+    width: 100%;
+    height: 100%;
+    background-color: cyan;
+    font-weight: 600;
+    border: 1px solid black;
+}
+
+#notebook {
+    position: absolute;
+    left: 10%;
+    right: 10%;
+    top: 10%;
+    bottom: 10%;
+    background-image: url("Images/Notebook.png");
+    background-size: contain;
+    display: flex;
+    z-index: 99;
+    justify-content: space-between;
+}
+
+.page {
+    width: 49%;
+    position: relative;
+    height: 100% - 6px;
+}
+
+.shiftLeft {
+    margin-right: 20px;
+}
+
+.shiftRight {
+    margin-left: 20px;
+}
+
+#bookInfo {
+    font-size: 90%;
+    text-align: center;
+}
+
+#pageInfo {
+    position: absolute;
+    width: 378px;
+    margin: 7px;
+    height: 540px;
+}
+
+h1 {
+    font-family: 'Roboto', sans-serif;
+}
+
+h2 {
+    margin-top: -3px;
+    font-size: 140%;
+    font-family: 'Roboto', sans-serif;
+}
+
+h3 {
+    padding-top: none;
+    text-align: center;
+    text-decoration: underline;
+    font-family: 'Roboto', sans-serif;
+}
+
+h4 {
+    font-size: 100%;
+    line-height: 0.2;
+    padding-left: 0.5em;
+    font-family: 'Roboto', sans-serif;
+}
+
+.notebookList {
+    font-size: 73%;
+    line-height: 1.3;
+    padding-bottom: 5px;
+    margin-right: 10px;
+}
+
+#text {
+    padding-left: 0.8rem;
+    margin-top: 10px;
+    font-size: 110%;
+    font-family: 'Roboto', sans-serif;
+    color: black;
+}
+
+#dialogueBoxInterview > #text {
+    margin-top: 0.5rem;
+}
+
+
+#character {
+    padding-left: 0.5rem;
+    padding-top: 0.4rem;
+}
+
+#char-interview {
+    position: absolute;
+    top: 1%;
+    left: 50%;
+    width: 400px;
+    height: 65px;
+    text-decoration: underline;
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: 250%;
+    background-image: url("Images/canvas.jpg");
+    border: 2px solid black;
+    /* padding: 5px; */
+}
+
+#notebookInput {
+    display: flex;
+    height: 50px;
+    border: 1px solid black;
+}
+
+#addText {
+    top: 30%;
+    bottom: 5%;
+    left: 15%;
+    right: 15%;
+    font-size: 80%;
+    transition: 0.5s;
+    border: 1px solid black;
+    position: absolute; 
+    color: white;
+    background-color: maroon;
+}
+
+#addText:hover {
+    background-color: green;
+    transition: 0.3s;
+}
+
+#notebookInput > div > p {
+    line-height: 0.1;
+    font-size: 80%;
+}
+
+#additionalNotes {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+}
+
+#submitButton {
+    width: 40%;
+    height: 100%;
+    position: relative;
+    margin: auto;
+}
+
+
+input {
+    width: 92%;
+    margin: auto; 
+}
+
+#writing {
+    border: 2px solid black;
+}
+
+#writing:hover {
+    cursor: text;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+#writeArea {
+    overflow: auto;
+    overflow-wrap: break-word;
+    height: 320px;
+    font-size: 90%;
+}
+
+#writeArea:hover {
+    overflow-y: scroll;
+}
+
+#NBOpenButton {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 66px;
+    width: 150px;
+    margin: 2px;
+    font-size: 110%;
+    background-color: rgb(16, 248, 248);
+    border: 1px solid black;
+}
+
+#notebookButton > button:hover {
+    background-color: cyan;
+}
+
+#NBOpenButton:hover {
+    background-color: cyan;
+}
+
+#accuseButton {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 66px;
+    width: 150px;
+    margin: 2px;
+    background-color: red;
+    font-size: 110%;
+    border: 1px solid black;
+}  
+
+#firstMateDoor {
+    width: 200px;
+    height: 350px;
+    position: absolute;
+    top: 30%;
+    left: 10%;
+}
+
+#gunnerDoor {
+    width: 200px;
+    height: 300px;
+    position: absolute;
+    top: 40%;
+    left: 70%;
+}
+
+.door > img {
+    width: 100%;
+    height: 100%;
+}
+
+#bottomLevelDoor {
+    width: 123px;
+    height: 180px;
+    position: absolute;
+    top: 42%;
+    left: 44%;
+}
+
+#bottomLevelDoor > img {
+    width: 100%;
+    height: 100%;
+}
+
+
+#storeRoomDoor {
+    width: 100px;
+    height: 200px;
+    position: absolute;
+    top: 51%;
+    left: 54%;
+}
+
+#cookDoor {
+    width: 300px;
+    height: 400px;
+    position: absolute;
+    top: 28%;
+    left: 2%;
+}
+
+#crewHallDoor {
+    width: 75px;
+    height: 150px;
+    position: absolute;
+    top: 37%;
+    left: 68%;
+}
+
+.interview-questions > li:hover {
+    text-decoration: underline;
+}
+
+.interview-questions {
+    margin-top: -0.2rem;
+    margin-left: -1rem;
+    font-weight: 700;
+    
+}
+
+.interview-questions > li {
+    padding: 0.5em;
+    color: black;
+    font-weight: 400;
+    font-family: 'Roboto', sans-serif;
+}
+
+#backButton {
+    position: absolute;
+    top: 10%;
+    width: 150px;
+    height: 66px;
+    z-index: 2;
+    margin: 1px 2px 2px 2px;
+}
+
+#backButton > button {
+    width: 100%;
+    height: 100%;
+    background-color: blue;
+    color: white;
+    font-weight: 600;
+    border: 1px solid black;
+}
+
+.delButton {
+    width: 70px;
+    height: 18px;
+    float: right;
+    background-color: orange;
+    color: black;
+    margin-right: 2px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.note > p {
+    max-width: 60px;
+    display: inline;
+}
+
+#wrestle-pirate {
+    position: absolute;
+    left: 35%;
+    bottom: 6%;
+    width: 300px;
+    height: 600px;
+}
+
+#wrestle-scene {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+}
+
+#pirates-armwrestle {
+    width: 800px;
+    height: 400px;
+    z-index: 98;
+    display: flex;
+}
+
+#AW-instructions {
+    position: absolute;
+    top: 1.5%;
+    left: 50%;
+    color: white;
+    background-color: grey;
+    transform: translateX(-50%);
+    /* background-image: url("Images/AWPirate.png"); */
+    text-align: center;
+    font-size: 300%;
+}
+
+#leftAW {
+    background-image: url('Images/AWPirate.png');
+    background-size: cover;
+    /* background-color: purple; */
+    width: 400px;
+    height: 500px;
+    position: absolute;
+    left: 23%;
+}
+
+#AW-start:hover {
+    background-color: green;
+    transition: 0.5s;
+}
+
+#AW-start {
+    width: 200px;
+    height: 120px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Roboto', sans-serif;
+    font-size: 150%;
+    background-color: maroon;
+    color: white;
+    font-weight: 600;
+    border: 0;
+    z-index: 3;
+    border: 2px solid black;
+}
+
+#Quizzical-pirate {
+    position: absolute;
+    left: 15%;
+    bottom: 6%;
+    width: 410px;
+    height: 600px;
+}
+
+#pirates-quiz {
+    width: 500px;
+    height: 350px;
+    border: 2px solid black;
+    border-radius: 25px;
+    background-image: url("Images/canvas.jpg");
+    overflow: hidden;
+    background-size: 500px 400px;
+}
+
+#quiz-scene {
+    position: absolute;
+    top: 40%;
+    left: 73%;
+    transform: translate(-50%, -50%);
+}
+
+
+#quiz-start {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 120px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 150%;
+    background-color: maroon;
+    color: white;
+    font-weight: 600;
+    border: 0;
+}
+
+#quiz-start:hover {
+    background-color: green;
+    transition: 0.3s;
+}
+
+#answers {
+    margin: 0px 10px 5px;
+    border: 1px solid black;
+    position: relative;
+}
+
+fieldset {
+    border: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+label {
+    font-family: 'Roboto', sans-serif;
+}
+
+input[type=submit] {
+    position: absolute;
+    left: 50%;
+    top: 110%;
+    margin-top: 5px;
+    transform: translateX(-50%);
+    background-color: maroon;
+    color: white;
+    width: 50%;
+    border: 0;
+    height: 40px;
+}
+
+input[type=submit]:hover {
+    background-color: green;
+    transition: 0.3s;
+}
+
+#question-header {
+    padding: 10px 15px 0px;
+    font-size: 140%;
+    font-family: 'Roboto', sans-serif;
+}
+
+.roboto {
+    font-family: 'Roboto', sans-serif;
+}
+
+#question {
+    margin: auto;
+    padding: 15px;
+    line-height: 1.2;
+    height: 30px;
+    font-family: 'Roboto', sans-serif;
+}
+
+input[type=radio] {
+    margin: 0.6rem;
+    width: 100px;
+}
+
+label {
+    margin-left: -45px;
+    font-size: 90%;
+}
+
+.dice {
+    position: relative;
+    /* background-color: aqua; */
+    display: flex;
+    width: 325px;
+    height: 250px;
+    background-color: rgba(0, 0, 255, 0.2);
+    border: 1px solid black;
+}
+
+.dice > div{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+}
+
+.dice > div > img{
+    width: 100%;
+    height: 100%;
+}
+
+.fakeDice {
+    position: relative;
+    /* background-color: aqua; */
+    display: flex;
+    width: 200px;
+    height: 200px;
+}
+
+.fakeDice > img {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+}
+
+#cupSide {
+    background-color: rgba(255, 0, 208, 0.2);
+    border: 1px solid black;
+    width: 175px;
+    height: 250px;
+}
+
+#cupSide > img {
+    width: 100%;
+    height: 100%;
+}
+
+#playerHand {
+    position: absolute;
+    width: 500px;
+    height: 250px;
+    display: flex;
+    flex-direction: row;
+    bottom: 145px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#leftHand {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    /* position: relative; */
+    bottom: 325px;
+    left: 5px;
+    background-color: rgba(255, 0, 0, 0.2);
+    border: 1px solid black;
+    transform: translateY(-50%);
+    transform: rotate(90deg);
+  
+}
+
+#topHand {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    /* position: relative; */
+    top: 5px;
+    left: 40%;
+    background-color: rgba(255, 0, 0, 0.2);
+    border: 1px solid black;
+    transform: translateX(-50%);
+    transform: rotate(180deg);
+}
+
+#rightHand {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    /* position: relative; */
+    background-color: rgba(255, 0, 0, 0.2);
+    border: 1px solid black;
+    bottom: 325px;
+    right: 5px;
+    transform: translateY(-50%);
+    transform: rotate(270deg);
+}
+
+#confirmAccuse {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 200px;
+    background-image: url("Images/canvas.jpg");
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 101;
+    border: 2px solid black;
+}
+
+#confirmAccuseButton, #stopAccuseButton {
+    margin: auto;
+    width: 100px;
+    height: 50px;
+    margin-top: -20px;
+    text-align: center;
+    background-color: maroon;
+    color: white;
+    border: 1px solid black;
+}
+
+#confirmAccuseButton:hover, #stopAccuseButton:hover {
+    background-color: green;
+    transition: 0.3s;
+}
+
+#accuseButtons {
+    display: flex;
+    flex-direction: row;
+    height: 50%;
+}
+
+
+#accuseSuspects {
+    position: absolute;
+    display: flex;
+    justify-content: space-evenly;
+    top: 0%;
+    margin: 5px;
+    left: 0%;
+    width: 1000px;
+    height: 500px;
+    z-index: 100;
+}
+
+.suspect {
+    width: 300px;
+    background-image: url("Images/canvas.jpg");
+    height: 500px;
+    margin: 5px;
+    border: 2px solid black;
+}
+
+#warning{
+ padding: 15px;
+ height: 100px;
+ width: 280px;
+}
+
+.suspect > .susStyle > h3 {
+    color: black;
+    text-decoration: underline;
+    font-size: 200%;
+}
+
+.suspect:hover {
+    color: cyan;
+}
+
+.suspect > .susStyle > img {
+    width: 100%;
+    height: 80%;
+}
+
+.suspect:hover {
+    cursor: crosshair;
+    background-color:blueviolet;
+}
+
+.bold {
+    font-size: 100%;
+    font-weight: 700;
+    font-family: 'Roboto', sans-serif;
+}
+
+#lockedUpPirate{
+    position: absolute;
+    left: 45%;
+    top: 55%;
+    transform: translate(-50%, -50%);
+}
+
+.endScreen {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 330px;
+    width: 400px;
+    background-image: url("Images/canvas.jpg");
+    transform: translate(-50%, -50%);
+    border: 2px solid black;
+}
+
+body {
+    background-color: rgb(230, 230, 255);
+}
+
+.endScreen > .canvasStyle > h1 {
+    margin: auto;
+    padding: 5px;
+    text-align: center;
+    text-decoration: underline;
+}
+
+.endScreen > .canvasStyle > h2 {
+    margin: auto;
+    padding-top: 10px;
+    text-align: center;
+}
+
+#items {
+    position: relative;
+    /* position: absolute; */
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 79.2%;
+    background-color: purple;
+    z-index: 0;
+    background-image: url('Images/Storeroom.jpg');
+    background-size: cover;
+}
+
+.storeroom-item {
+    cursor: pointer;
+}
+
+.storeroom-item > img {
+    width: 100%;
+    height: 100%;
+}
+
+#rum {
+    position: absolute;
+    left: 70%;
+    top: 55%;
+    height: 300px;
+    width: 250px;
+}
+
+#weapon {
+    position: absolute;
+    left: 42%;
+    bottom: 73%;
+    height: 115px;
+    width: 38px;
+    /* transform: rotate(-90deg); */
+}
+
+#pirateHat {
+    position: absolute;
+    left: 10%;
+    bottom: 52%;
+    height: 100px;
+    width: 150px;
+}
+
+#compass {
+    position: absolute;
+    left: 36%;
+    bottom: 22%;
+    height: 50px;
+    width: 50px;
+}
+
+#casualchat-pirate {
+    position: absolute;
+    height: 600px;
+    width: 380px;
+    left: 30%;
+    top: 5%;
+}
+
+#letter {
+    position: absolute;
+    height: 500px;
+    width: 500px;
+    background-image: url("Images/canvas.jpg");
+    left: 50%;
+    top: 40%;
+    border-radius: 5px;
+    border: 2px solid black;
+    transform: translate(-50%, -50%);
+}
+
+
+#notebookButtonFake {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 150px;
+    height: 66px;
+    margin: 2px;
+    z-index: 2;
+}
+
+#notebookButtonFake > button {
+    width: 100%;
+    height: 100%;
+    background-color: cyan;
+    font-weight: 600;
+    border: 1px solid black;
+}
+
+.bTest {
+    background-image: url("Images/canvas.jpg");
+    background-size: cover;
+    /* background-repeat: repeat; */
+}
+
+
+#entireBox{
+    background-color: rgba(255, 255, 255, 0.7);
+    width: 100%;
+    padding: 5px;
+    margin-left: -5px;
+    margin-top: -5px;
+    height: 125px;
+}
+
+#dialogueHeader {
+    padding: 10px 5px 0px 5px;
+    line-height: 20px;
+    height: 38px;
+    width: 100%;
+    margin-top: -5px;
+    margin-left: -5px;
+    border-bottom:  2px solid black;
+    background-color: rgba(72, 125, 225, 0.6);
+}
+
+#dialogueHeader > h2 {
+    padding-bottom: -10px;
+    padding-left: 10px;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+}
+
+#interviewBubble {
+    position: absolute;
+    left: 75%;
+    top: 28%;
+    height: 200px;
+    width: 300px;
+    background-color: red;
+    transform: translate(-50%, -50%);
+    font-family: 'Roboto', sans-serif;
+}
+
+li {
+    font-family: 'Roboto', sans-serif;
+    font-size: 110%;
+}
+
+span {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+}
+
+#captain {
+    position: absolute;
+    top: 46%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#intro-FM {
+    position: absolute;
+    top: 46%;
+    left: 50%;
+    height: 500px;
+    width: 300px;
+    transform: translate(-50%, -50%);
+}
+
+#vinny {
+    position: absolute;
+    top: 60%;
+    left: 55%;
+    height: 300px;
+    width: 200px;
+    transform: translate(-50%, -50%);
+}
+
+#envelope {
+    position: absolute;
+    top: 68%;
+    left: 54%;
+    height: 50px;
+    width: 75px;
+    transform: translate(-50%, -50%);
+}
+
+#captainAccuse {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    overflow: hide;
+    transform: translate(-50%, -50%);
+}
+
+#prisonerG {
+    width: 350px;
+    height: 500px;
+}
+
+#prisonerF {
+    width: 300px;
+    height: 500px;
+}
+
+#prisonerC {
+    width: 350px;
+    height: 500px;
+}
+
+.susStyle {
+    background-color: rgba(255, 255, 255, 0.7); 
+    width: 100%; 
+    height: 100%;
+    margin-top: -32px;
+}
+
+.canvasStyle {
+    background-color: rgba(255, 255, 255, 0.7); 
+    width: 100%; 
+    height: 100%;
+}
+
+#conclusion {
+    margin: 20px 45px 20px;
+    width: 320px;
+    font-size: 120%;
+    font-family: 'Roboto', sans-serif;
+    
+}
+
+#letterText {
+    margin: 20px 40px 20px;
+    line-height: 2;
+    font-family: 'Roboto', sans-serif;
+}
+
+#letter > .canvasStyle > h1 {
+    text-align: center;
+    margin: auto;
+    padding-top: 30px;
+}
+
+#redo {
+    top: 0;
+    left: 0;
+    border: none;
+    margin: 5px;
+    width: 100px;
+    height: 50px;
+    border: 2px solid black;
+    position: absolute; 
+    color: white;
+    background-color: maroon;
+}
+
+#redo:hover {
+    background-color: green;
+    transition: 0.3s;
+}
+
+.blackout {
+    /* filter: contrast(4); */
+    filter: brightness(0);
+}
+
+#bid {
+    position: absolute;
+    width: 400px;
+    height: 200px;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: space-between;
+}
+
+#bid > button {
+    background-color: maroon;
+    color: white;
+    width: 45%;
+    font-size: 250%;
+}
+
+#bid > button:hover {
+    background-color: green;
+    transition: 0.3s;
+}
+
+
+
+
+
+
+
+
+

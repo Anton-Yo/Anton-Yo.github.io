@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>The Brandino</title>
+<link href="brandino-styles.css" rel="stylesheet"/>
+<script src="js/jquery.js"></script>
+<script src="js/ping.js"></script>
+<script src="js/preload.js"></script>
+<script>
+
+
+$(document).ready(function() { 
+    $(".endScreen, #redo").hide();
+    
+    let name = localStorage.getItem("name");
+    $("#conclusion").html("Oh no! " + name + " you were a bit too hasty in your judgements and accused the wrong subject! Unfortunately this meant the evil Pirate Lord caught up to the Brandino and has taken over the ship! Maybe there is still time to stop this... if you click the button in the top left!");
+
+    const endTimeout = setTimeout(displayEnding, 1000);
+
+    function displayEnding() {
+        $(".endScreen, #redo").slideDown(2000);
+    }
+    
+    $("#redo").on("click", function() {
+        localStorage.clear();
+        window.location = "index.html"; 
+    })
+
+});
+
+</script>
+</head>
+<body>
+
+<div id="stage"> 
+
+
+    <img class="background-image" src="Images/BadEnd.jpg"> 
+  
+     
+    <div class="endScreen">
+        <div class="canvasStyle"> 
+            <h1> Investigation Failed</h1> 
+            <h2>  You didn't find the correct suspect</h2>
+            <p id="conclusion"> </p> 
+        </div>
+    </div>
+
+    <button id="redo"> Restart </button>
+
+</div>
+
+</body>
+</html>

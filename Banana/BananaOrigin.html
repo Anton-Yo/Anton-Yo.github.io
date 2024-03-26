@@ -1,0 +1,167 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Banana Website</title>
+<link href="banana-styles.css" rel="stylesheet" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+$(document).ready(function() { 
+
+    curState = 0;
+
+   
+    $("#fig3").hide();
+    $("#fig4").hide();
+    $("#fig5").hide();
+
+    $("#next").click(function() {
+
+        if(curState == 2) {
+        $("#fig3").hide();
+        $("#fig5").show();
+        curState = 3;
+        }
+
+
+        if(curState == 1) {
+        $("#fig2").hide();
+        $("#fig4").show();
+        curState = 2;
+        }
+
+        if(curState == 0) {
+        $("#fig1").hide();
+        $("#fig3").show();
+        curState = 1;
+        }
+
+       
+    });
+
+
+    $("#prev").click(function() {
+
+    
+        if(curState == 1) {
+        $("#fig3").hide();
+        $("#fig1").show();
+        curState = 0;
+        }
+
+        if(curState == 2) {
+        $("#fig4").hide();
+        $("#fig2").show();
+        curState = 1;
+        }
+
+        if(curState == 3) {
+        $("#fig5").hide();
+        $("#fig3").show();
+        curState = 2;
+        }
+
+    });
+
+
+})
+
+</script>
+</head>
+<body class="bigLeaf">
+    
+
+<h1 class="title"> Timeline of the Banana</h1>
+
+    <section class="timeline">
+
+        <div class="startTxt"> <h2>10,000BC </h2> </div>
+            <div class="left"> </div>
+            <div class="line"> </div>
+            <div class="right"> </div>
+
+        <div class="endTxt"> <h2> Current Day </h2>  </div>
+        
+
+    </section>
+    
+    
+
+
+    <section class="slideshow">
+        
+        <div id="fig1" class="burg">
+            <h2> 10000BC–650AD</h2>
+           
+            <figure>
+                <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Rattus_exulans_distribution.png/512px-Rattus_exulans_distribution.png" target="_blank">  <img class="originImg"  src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Rattus_exulans_distribution.png/512px-Rattus_exulans_distribution.png"map of south-east asia"> </a>
+        
+            </figure>
+            <p class="OGinfo">Bananas are thought to have originated in south-east asia, in countries such as Malaysia, Indonesia, Papua new guinea and the Phillipines. The wild ancient bananas were very different to today’s bananas. Original bananas are said to have had large, hard seeds and little of the edible pulp that today’s bananas have. Nonetheless, the bananas spread from south east Asia to Polynesia, India and Africa. The current variant of banana occurred via crossbreeding of two wild banana varieties in Africa, the Musa Acuminata and the Musa Baalbisiana around 650AD.</p>
+        </div>
+
+        <div id="fig2" class="burg">
+            <h2>500–1800</h2>
+            
+            <figure>
+                <a href="https://www.flickr.com/photos/60632847@N03/11834675753" target="_blank"> <img class="originImg" src="Images/ManInBuds.jpg" alt="Growing small plants"> </a>
+                
+            </figure>
+            <p class="OGinfo"> During this period, bananas were transported and even grown on plantations by multiple countries. Bananas were allegedly grown around coastal regions of the Indian ocean, and in Latin America and Caribbean and by Portuguese in both Brazil, Western Africa and the Canary Islands (off the coast of Western Australia).</p>
+        </div>
+
+        <div id="fig3" class="burg">
+            <h2> 1800-1850</h2>
+            <figure>
+                <a href="https://www.flickr.com/photos/10978503@N00/8063241148" target="_blank"> <img class="originImg" src="Images/GreenBunch.jpg" alt="green bunch"> </a>
+            </figure>
+            <p class="OGinfo"> Two important banana types developed around this time. The Gros Michel banana discovered in 1820s, which succumbed to Panama disease in the early 1900s and caused banana shortages as it was the major supplier. And the Cavendish banana, a banana resistant to Panama disease and because of this (spoilers), it became the most popular banana worldwide. This does not however mean it is immune to every disease. It originated in the 1830s and was named after William Spencer Cavendish the 6th Duke of Devonshire. </p>
+        </p>
+        </div>
+
+        <div id="fig4" class="burg">
+            <h2> 1850-1950</h2>
+          
+            <figure>
+                <a href="https://www.flickr.com/photos/24898866@N06/3228359004" target="_blank"><img class="originImg" src="Images/CoffsBanana.jpg" alt="Big Banana"> </a>
+            </figure>
+            <p class="OGinfo"> Bananas snuck into Australia first with Chinese migrants in Western Australia in the mid 1800s. But plantations weren’t established until the 1880s, where apparently Chinese gold workers and Fijian sugar cane cutters brought Cavendish bananas, which had spread throughout China and Polynesia, to Queensland. Plantations popped up at places like Cairns, Cooktown, Innisfalls and Tully. In the 1890s, varying parties also establish plantations around the Coffs harbour area in NSW.</p>
+        </p>
+        </div>
+
+        <div id="fig5" class="burg">
+            <h2> 1950-2022</h2>
+        
+            <figure>
+                <a href="https://www.pexels.com/photo/banana-tree-802783/" target="_blank"> <img class="originImg" src="Images/closeBanana.jpg" alt="Green bananas"> </a>
+            </figure>
+            <p class="OGinfo"> Cavendish bananas have become the dominant banana for international trade. With 153 million tonnes of bananas being produced globally in 2017, bananas have gone from a difficult to obtain exotic fruit to a household expectation. Additionally, Australia now has plantations in Queensland, Western Australia, NSW and the Northern territory, although it’s worth noting that 94% of Australia’s bananas are produced in Queensland. </p>
+        </p>
+        </div>
+
+    </section>
+
+    <section class="moveButtons"> 
+
+        <button type="button" id="prev"> Previous </button>
+        <button type="button" id="next"> Next </button>
+
+    </section>
+
+    <footer> 
+    
+        <p> Navigation </p>
+    
+        <nav> 
+                    <a href=index.html> Homepage</a>
+                    <a href=BananaOrigin.html> History</a> 
+                    <a href=BananaLife.html> Lifecycle</a> 
+                    <a href=BananaTypes.html> Types</a> 
+                    <a href=BananaFacts.html> Cool Facts</a> 
+    
+        </nav>
+    
+    
+        </footer>
+</body>
+</html>

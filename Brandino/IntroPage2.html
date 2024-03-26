@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>The Brandino</title>
+<link href="brandino-styles.css" rel="stylesheet"/>
+<script src="js/jquery.js"></script>
+<script src="js/ping.js"></script>
+<script src="js/notebook.js"></script>
+<script>
+
+
+$(document).ready(function() { 
+
+    $("#stage").fadeIn(1200);
+    localStorage.setItem("noteBookCanOpen", false);
+
+    let dialogueArray = [];
+    let headerArray = [];
+    let dialogueState = 0;
+
+   
+    dialogueState++;
+
+    headerArray[0] = "Captain";
+    headerArray[1] = "Captain";
+    headerArray[2] = "One-Eyed Jimbo";
+    headerArray[3] = "Hopeful Pirate";
+    headerArray[4] = "Drunk Pirate";
+    headerArray[5] = "Helmswoman";
+    headerArray[6] = "Group of Pirates";
+    headerArray[7] = "Captain";
+
+
+    dialogueArray[0] = "Ay laddy, as you already know, the Brandino here used be a proficient and successfull pirating vessel. But your auntie has a way with words, that she does, so we turned to a safer and suprisingly more profitable trade. That of a mercenary ship for hire, not for fighting in combat no, but for finding TREASURE.";
+    dialogueArray[1] = "Last night, we were coming off the high of one our biggest hauls yet, the fabled Barangaroo Treasure and the key to it of course!! That treasure is the envy of pirates and navalmen everywhere. Aye, if we survive this, the buyer will pay us enough to purchase a second ship!!";
+    dialogueArray[2] = "Ay, lads we're stinking rich!";
+    dialogueArray[3] = "We got the legendary treasure alright, I'm gonna tell all my friends and all the lovely ladies about this when I get home";
+    dialogueArray[4] = "HA, you've got none of those and we all know it! All any of us will be doing is drinking it away!";
+    dialogueArray[5] = "Speak for yourself ya drunkard! I'm going buy a whole new set of jewellery. After all someone keeps stealing from my current stash... bloody ex-pirates the lot of ya";
+    dialogueArray[6] = "<em> <strong> Laughter echoes around the ship </strong></em>";
+    dialogueArray[7] = "Indeed, last night twas one of revelry, shame we were all distracted so that one of the crew could set a devious plan in motion...";
+
+    $("#text").html(dialogueArray[0]);
+
+    $('#dialogueBox').click(progressDialogue);
+
+    function progressDialogue() {
+
+        $("#text").html(dialogueArray[dialogueState]);
+        $("#character").html(headerArray[dialogueState]);
+
+        dialogueState++;
+
+        if(dialogueState > dialogueArray.length) {
+            $("#stage").fadeOut(800, function(){
+                window.location = "IntroPage3.html";
+            });
+          
+        }
+    }
+
+
+});
+
+</script>
+</head>
+<body>
+
+<div id="stage"> 
+
+    <img class="background-image" src="Images/Introv3.png"> 
+
+    <div id="dialogueBox" class="bTest"> 
+        <div id="entireBox">
+            <div id="dialogueHeader"> <h2 id="character"> Captain </h2>  </div>
+            <div id="text"> </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

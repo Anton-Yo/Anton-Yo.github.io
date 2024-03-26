@@ -1,0 +1,152 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>The Brandino</title>
+<link href="brandino-styles.css" rel="stylesheet"/>
+<script src="js/jquery.js"></script>
+<script src="js/notebook.js"></script>
+<script src="js/ping.js"></script>
+<script src="js/preload.js"></script>
+<script>
+
+
+$(document).ready(function() { 
+
+    $('#letter').hide();
+    $("#notebookButtonFake, #intro-FM, #vinny, #envelope").hide();
+    $("#stage").fadeIn(800);
+    let name = localStorage.getItem("name");
+    
+    let letterUp = false;
+    let doOnce = true;
+    let dialogueArray = [];
+    let headerArray = [];
+    let dialogueState = 0;
+
+    headerArray[0] = "Captain";
+    headerArray[1] = "First Mate";
+    headerArray[2] = "First Mate";
+    headerArray[3] = "Captain";
+    headerArray[4] = "Captain";
+    headerArray[5] = "Captain";
+    headerArray[6] = "Captain";
+    headerArray[7] = "Captain";
+    headerArray[8] = "Captain";
+
+    dialogueArray[0] = "In the morning, I was awoken at first light by my First Mate. Immediately I heard the majority of the crew already up and about, which I must say, was unusual after a hard night of drinking."
+    dialogueArray[1] = "Captain! There's been a murder! One-eyed Jimbo saw that Flinty Fynn, the storeroom guard posted for the overnight shift hadn't returned to his sleeping arrangement, and he came to alert me."
+    dialogueArray[2] = "But when we went to the storeroom there was a horrible sight! Flinty Fynn never made it to bed, he was dead in the storeroom! Come quickly!"
+    dialogueArray[3] = "Thus, we arrived at the store room, barging through the gathering of crew members standing outside."
+    dialogueArray[4] = "Remember nephew, its only really necessary to have a guard to the storeroom when there's treasure in it. Don't want any of the new crew members getting too picky! But there hasn't been any incidents in a long time... not until this"
+    dialogueArray[5] = "But most importantly, the killer had an ultimate motive... steal the key to the Barangaroo Treasure. Fynn had had the key on him in his pocket, and it was nowhere to be found on his body. And the killer left a note"
+    dialogueArray[6] = "It is important " + name + " that we find the killer and I am tasking you with helping me. There are three members of the crew that are prime suspects, as they're the only ones with the means and/or motive to commit murder last night"
+    dialogueArray[7] = "I need you to go interview members of the crew to find out all the information you can! To help you I am giving you a notebook to record all your findings. Don't worry it will record important information automatically, or you can even add whatever you want"
+    dialogueArray[8] = "When you think you have enough information to solve this case, make sure to accuse them via the notebook when you're ready. Now go, find and talk to every crew member you can find! Our lives depend on it!"
+    
+    progressDialogue();
+
+    $('#dialogueBox').click(progressDialogue);
+
+    function progressDialogue() {
+
+       
+        if(dialogueState == 1) {
+            $(".background-image").hide();
+            $(".background-image").attr('src', 'Images/Captains quarters.png'); 
+            $(".background-image, #intro-FM").fadeIn(700);
+        }
+
+        if(dialogueState == 3) {
+            $(".background-image").attr('src', 'Images/Storeroom.jpg'); 
+            $("#intro-FM").hide();
+            $("#vinny, #envelope").show();
+        }
+
+        if(dialogueState == 6) {
+           
+            if(doOnce) {
+                
+                    showLetter();
+                    setTimeout(noLetter, 1000);
+                    doOnce = false;
+                
+            }
+        }
+
+        if(dialogueState == 6 && !letterUp) {
+            $("#letter").hide();
+        }
+
+        if(dialogueState == 8) {
+            letterUp = true;
+            $("#notebookButtonFake").fadeIn(1000, function() {
+                $("#notebookButtonFake").addClass("pulse");
+                letterUp = false;
+        });
+    }
+
+        if(!letterUp) {
+            $("#text").html(dialogueArray[dialogueState]);
+            $("#character").html(headerArray[dialogueState]);
+            dialogueState++;
+            console.log(dialogueState + " " + letterUp);
+        }
+       
+
+        if(dialogueState > dialogueArray.length) {
+            $("#stage").fadeOut(800, function(){
+                window.location = "FirstFloor.html";
+            });
+          
+          
+        }
+    }
+
+    function showLetter() {
+        $("#letter").show();
+        letterUp = true;
+    }
+
+    function noLetter() {
+        letterUp = false;
+    }
+
+});
+
+</script>
+</head>
+<body>
+
+<div id="stage"> 
+
+    <img class="background-image">
+
+    <img id="intro-FM" src="Images/FirstMate.png">
+    <img id="vinny" src="Images/Vinny.png">
+    <img id="envelope" src="Images/envelope.png"> 
+    
+        <div id="notebookButtonFake">
+            <button> Notebook </button>
+        </div>
+   
+    
+    <div id="letter"> 
+        <div class="canvasStyle">
+        <h1> To The Crew Of the Brandino </h1>
+        <p id="letterText"> <em> Arghh, Captain and crew of the Brandino, I am very disappointed in you. 
+            You're trying to take treasure from the Pirate Lord?? I've been searching for the Barangaroo Treasure for ages and I 
+            will not let anyone else have it. My little birdie on your ship has made sure that you’re not leaving anywhere with my treasure and stolen the key. Now you'll never find your precious key, and without the key, the treasure is useless! Make sure to get your surrender flag ready when I come along, otherwise you will not enjoy what’s coming. The Brandino will be mine and your meddlesome crew will be sold into slavery never to sail the seas freely again! </em></p>
+        </div>
+    </div>
+
+    <div id="dialogueBox" class="bTest"> 
+        <div id="entireBox">
+            <div id="dialogueHeader"> <h2 id="character"> Captain </h2>  </div>
+            <div id="text"> </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

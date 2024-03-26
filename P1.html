@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+<title> Anton's Website </title>
+<link href="styles.css" rel="stylesheet"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<script>
+    
+    $(document).ready(function(){
+        $(".wrapper").css("display", "block");
+
+        $("#itch-link")
+        .on("mouseenter", function()
+        {
+            document.getElementById("itch-img").src = "Images/itchHover.png";
+        })
+        .on("mouseleave", function()
+        {
+            document.getElementById("itch-img").src = "Images/itch.png";
+            
+        })
+
+        $("#back-button").on("click", function()
+        {
+            
+            window.location.href = "index.html";
+        })
+
+    })
+
+</script>
+
+<body>
+
+    <nav>
+        <a id="name-title" href="index.html"> Anton Arens </a>
+        <div id="navigation-icons">
+            <a id="itch-link" href="https://itch.io/profile/soggytest" target="_blank"> <img class="icon" id="itch-img" src="Images/itch.png" > </a>
+            <a id="github-link" href="https://github.com/Anton-Yo" target="_blank"> <img class="icon" id="github-img" src="Images/Github.png" > </a>
+        </div>
+    </nav>
+
+    <div class="wrapper" id="p1-background">
+        
+        <button class="clickable" id="back-button"><img src="Images/back.png" id="back-button-img"> </button>
+        <h2 class="p1-info-title"> <img src="Images/P1 Title.png" id="p1-title"> </h2>
+   
+        <div class="left-side white-text">
+            <p class=" project-page-desc p1-fix-margin"> 
+                Phoenix one is a puzzle-action platformer with a focus on a unique ricochet mechanic.
+                This game was made collaborating with other game development students over the course of a year at university.
+                Nearing it's completion, a playable demo is available on <a href="https://lstandsforwinner.itch.io/phoenix-one-demo" target="_blank" class="white-text-link" > itch.io. </a>
+            </p>
+
+            <h4> My Contributions: </h4>
+            <ul class="big-contribution-list">
+                <li> Producer Role
+                    <ul> 
+                        <li> Documented team tasks via Trello/Discord to keep project within scope </li>   
+                    </ul>
+                </li>
+                
+                <li> QA 
+                    <ul> 
+                        <li> Performed QA for each major milestone, documenting and fixing bugs along the way </li>   
+                    </ul>
+                </li>
+                <li> Enemy 
+                    <ul> 
+                        <li> Implemented the basic enemy and generic functionality and assisted with more complex enemies </li>   
+                    </ul>
+                </li>
+                <li> Controller 
+                    <ul> 
+                        <li> Implemented and tested controller support using Unity's new input system </li>   
+                    </ul>
+                </li>
+                <li> UI 
+                    <ul> 
+                        <li> Created the level select screen and helped create and design other UI screens and functionality </li>   
+                    </ul>
+                </li>
+                <li> Audio
+                    <ul> 
+                        <li> Implementing code to handle audio </li> 
+                        <li> Sourcing and modifying copyright-free sound effects using Audacity </li>   
+                    </ul>
+                </li>
+                <li> Playtesting 
+                    <ul> 
+                        <li> Conducted playtests and recorded data for analysis </li>   
+                    </ul>
+                </li>
+            
+            </ul>
+        </div>
+        
+        <div class="right-side white-border">
+            <img class="page-img" id="top-img" src="Images/P1 Action.png">
+            <img class="page-img" id="bottom-img" src="Images/MenuUI.png">
+        </div>
+
+        
+       
+    </div>
+
+
+</body>
+
+
+
+
+</html>

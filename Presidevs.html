@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+<title> Anton's Website </title>
+<link href="styles.css" rel="stylesheet"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<script>
+    
+    $(document).ready(function(){
+        $(".wrapper").css("display", "block");
+
+        $("#itch-link")
+        .on("mouseenter", function()
+        {
+            document.getElementById("itch-img").src = "Images/itchHover.png";
+        })
+        .on("mouseleave", function()
+        {
+            document.getElementById("itch-img").src = "Images/itch.png";
+            
+        })
+
+        $("#back-button").on("click", function()
+        {
+            
+            window.location.href = "index.html";
+        })
+
+    })
+
+</script>
+
+<body>
+
+    <nav>
+        <a id="name-title" href="index.html"> Anton Arens </a>
+        <div id="navigation-icons">
+            <a id="itch-link" href="https://itch.io/profile/soggytest" target="_blank"> <img class="icon" id="itch-img" src="Images/itch.png" > </a>
+            <a id="github-link" href="https://github.com/Anton-Yo" target="_blank"> <img class="icon" id="github-img" src="Images/Github.png" > </a>
+        </div>
+    </nav>
+
+    <div class="wrapper" id="presidevs-background">
+       
+        <button class="clickable" id="back-button"><img src="Images/back.png" id="back-button-img"> </button>
+        <h2 class="info-title"> Protect the Presidevs </h2>       
+        
+        <div class="left-side">
+            <p class="project-page-desc"> 
+                In yet another game jam, my team and I sought to push outside of our comfort zone, creating Protect the Presidevs.
+                We decided to create the game in Godot with zero experience, as it was garnering attention due to Unity's pricing changes.
+                Despite this, we were rated #1 overall at the 2023 <a href="https://itch.io/jam/macs-online-game-jam/results" class="in-text-link" target="_blank"> MACS Online Game Jam</a>. Play on <a href="https://lstandsforwinner.itch.io/phoenix-one-demo" class="in-text-link" target="_blank"> itch.io. </a>
+            </p>
+
+            <h4> My Contributions: </h4>
+            <ul class="small-contribution-list">
+                <li> Animation
+                    <ul> 
+                        <li> Using sprites sourced from the internet, I used Godot's built in animation tool to create a "Monkey Throw" and "Monkey Idle" animation  </li> 
+                        <li> Used GDscript to rotate between the animations as needed </li>
+                    </ul>
+                </li>
+                
+                <li> Monkey
+                    <ul> 
+                        <li> Developed a system for the monkey to randomly throw an object at 6 different enemies on cooldown </li> 
+                    </ul>
+                </li>
+                
+                
+                <li> Developing UI 
+                    <ul> 
+                        <li> Assisted with developing the start and end screen UI </li> 
+                        <li> Implemented the code to switch between the UI and reset the game state on restart </li>
+                    </ul>
+                </li>
+            
+            </ul>
+        </div>
+        
+        <div class="right-side black-border">
+            <img class="page-img" id="top-img" src="Images/Presidevs Game.png">
+            <img class="page-img" id="bottom-img" src="Images/Presidevs Title.png">
+        </div>
+
+        
+       
+    </div>
+
+
+</body>
+
+
+
+
+</html>

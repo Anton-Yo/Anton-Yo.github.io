@@ -1,0 +1,474 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>The Brandino</title>
+<link href="brandino-styles.css" rel="stylesheet"/>
+<script src="js/jquery.js"></script>
+<script src="js/notebookHTML.js"></script>
+<script src="js/notebook.js"></script>
+<script src="js/ping.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>  
+<script src="js/preload.js"></script>
+<script>
+
+
+$(document).ready(function() { //I wish had the time to make this into
+                                // a fully randomised game, but the full dice game is too big to add in as a minigame. 
+    let diceNumber;             //So will do one round with semi randomisation.
+    let diceID = 0;
+    let diceCount;
+    let addToTotal = 0;
+    let rerollLimit = 50;
+    let rerollCount = 0;
+    let numberOfDice = 4;
+    let diceInCup = 0;
+    let totals = [2,2,3,1,2,2]; //total amount of dice on field; starts with default opponent number
+    let headerArray = [];
+    let dialogueArray = [];
+    let dialogueState = -1;
+    let headerCount = 0;
+    let dialogueCanContinue = true;
+    let isRolled = false;
+    let lost = false;
+    let tempText = "";
+    let name = localStorage.getItem("name");
+    let reveal = false;
+
+    $("#bid").hide();
+
+    headerArray[0] = name;
+    headerArray[1] = "Lefty Pirate";
+    headerArray[2] = "Angry Pirate";
+    headerArray[3] = "Right Pirate";
+
+    console.log(localStorage.getItem("chat"));
+    if(localStorage.getItem("chat")) {
+        
+        dialogueArray[0] = "Oh look, One-Eyed Jimbo has revealed all the dice for me. What a nice guy. Remember, the goal is to guess how many dice are on the board, and call out those who you think are wrong! To get started put the dice in the cup!";
+    } else {
+        dialogueArray[0] = "Here we go, ready to play some dice?? The goal is to guess how many dice are on the board, and call out those who you think are wrong! To get started put the dice in the cup!";
+    }
+
+    dialogueArray[1] = "Now throw it!"
+    dialogueArray[2] = "Each pirate takes turns increasing the bid, and the bid must go up in dice value. E.g 2 threes must go to 3 threes or 2 fours. When the bid is higher then the dice that are actually on the board, you can call the bluff, and the pirate who made the bid will lose. Be careful not to increase the bid past what dice may be on the board!"
+
+
+    //round 1
+    dialogueArray[3] = "1 one";
+    dialogueArray[4] = "No way you started with that low a bid! Fine. 2 ones. ";
+    dialogueArray[5] = "2 threes!"
+    dialogueArray[6] = " What will you do???"
+
+
+    //round 2
+    
+    
+    checkVision();
+    updateDialogue();
+    makeDice();
+
+    function checkVision() {
+        // $(".blackout").addClass("blackout");
+
+        if(localStorage.getItem("chat")) {
+
+            removeBlackout();
+        }
+
+    }
+
+    function removeBlackout() {
+        $(".blackout").removeClass("blackout");
+    }
+
+    function makeDice() { 
+        for(let i = 0; i < numberOfDice; i++) {
+    
+            randomiseDice();
+            if(diceID > 1) { //checks if there are two divs yet
+                rerollCount = 0;
+                reroll();       
+            }
+
+        }
+
+    };
+
+    function randomiseDice() { //create dice at random position
+        diceNumber = 1 + Math.floor(Math.random() * 6);
+        addToTotal = diceNumber;
+        posX = Math.random() * (275); //275 because 325-50px (img size) = 275;
+        posY = Math.random() * (200); //200 because 250px height - 50px = 200
+
+        if(diceID == 0) {
+            totals[addToTotal-1]++;
+            countDice();
+        }
+        
+        $(".dice").append("<div id=dice" + diceID + "> <img src=Images/" + diceNumber + ".png> </div>");
+        
+        $("#dice" + diceID)
+        .css('top', posY + "px")
+        .css('left', posX +"px")
+        .css('cursor', "pointer");
+
+        diceID++;
+        diceCount++;
+        if(!isRolled) {
+            makeDraggable($("#dice" + (diceID-1)));
+        }
+    }
+
+    //taken from https://stackoverflow.com/questions/12066870/how-to-check-if-an-element-is-overlapping-other-elements
+    function checkOverlap(rect1, rect2) {
+        var overlap = !(rect1.right < rect2.left || 
+                rect1.left > rect2.right || 
+                rect1.bottom < rect2.top || 
+                rect1.top > rect2.bottom)
+        return overlap;
+    }
+
+    function reroll() { // 
+        let div1;
+        let div2;
+        let isOverlapping = false;
+
+        for(let i = diceID; i > 1; i--) {  //checks if dice div is overlapping with each other
+
+                div1 = document.getElementById("dice" + (diceID-1));
+                div2 = document.getElementById("dice" + (i-2));
+                div1 = div1.getBoundingClientRect();
+                div2 = div2.getBoundingClientRect();
+                
+                if(checkOverlap(div1, div2)) {
+                    isOverlapping = true;
+                }            
+                    
+        }
+
+        if(isOverlapping && rerollCount < rerollLimit) { // rerolls 50 times and if thats not possible just places randomly
+            console.log("removing");
+            $("#dice" + (diceID-1)).remove();
+                diceID--;
+                randomiseDice();
+                isOverlapping = false;
+                rerollCount++;
+                reroll();
+                
+        } else {
+            totals[addToTotal-1]++;
+        }
+
+    }
+
+    function countDice() { //count values of dice for dice totals
+
+        console.log("total " + totals);
+    }
+
+    function makeDraggable(item) {
+        $(item).draggable({
+            containment: "#playerHand",
+            cursor: "pointer"
+        });
+    }
+
+    $("#cupSide").droppable({  //counts and acknowledges when all dice are in "cup". can also just put one dice in repeatedly but hey
+
+        over: function( event, ui) {
+            $("#cup").addClass("pulse");
+        },
+
+        drop: function( event, ui) {
+            diceInCup++;
+            $("#cup").removeClass("pulse");
+            $(ui.draggable).hide();
+            document.getElementById("pingSound").currentTime = 0;
+            document.getElementById("pingSound").play();
+            if(diceInCup >= numberOfDice) {
+                
+                for(let i = 0; i < numberOfDice; i++) {
+                    $("#dice" + i).draggable("disable").hide();
+                    $("#cupSide").droppable("disable");
+                    $("#cup").removeClass("pulse");
+                }
+
+                doRollingAnimation(4, 80);
+                throwDice()
+                updateDialogue();
+
+            }
+        }
+    })
+
+    function doRollingAnimation(amount, time) {
+        
+//inspired by https://codepen.io/seeker5084/pen/VMQGwX because animation functions with rotation are hard
+    document.getElementById("rollSound").play();
+    for(let i = 0; i < amount; i++){
+       
+        $("#cup").animate({ deg: 20}, { //shake cup side to side 4 times
+            duration: time,
+            step: function(now) {
+                $(this).css({ transform: 'rotate(' + now + 'deg)'});
+            }
+        });
+
+        $("#cup").animate({ deg: -20}, {
+              duration: time,
+            step: function(now) {
+                $(this).css({ transform: 'rotate(' + now + 'deg)'});
+            }
+        });
+    }
+
+    $("#cup").animate({ deg: 0}, { //stand upright
+              duration: time/2,
+            step: function(now) {
+                $(this).css({ transform: 'rotate(' + now + 'deg)'});
+            }
+    });
+
+    $("#cup").draggable({
+        containment: "#playerHand",
+        revert: true,
+    });
+
+}
+
+function throwDice() {
+    
+    $(".dice").droppable({
+        over:  function(event, ui) {
+
+            $("#cup").animate({ deg: -20}, { //cup looks like ready to throw dice
+                duration: 500,
+                step: function(now) {
+                    $(this).css({ transform: 'rotate(' + now + 'deg)'});
+                }
+            }); 
+    },
+        drop: function(event, ui) {
+            isRolled = true;
+            diceThrown();
+            makeDice(); 
+            document.getElementById("rollSound").currentTime = 0;
+            document.getElementById("rollSound").play();
+            updateDialogue();
+           
+
+
+            $("#cup").animate({ deg: 0}, { //cup returns to original orientation
+                duration: 200,
+                step: function(now) {
+                    $(this).css({ transform: 'rotate(' + now + 'deg)'});
+                }
+            }); 
+        }
+    });
+}
+
+
+function diceThrown() {
+    dialogueCanContinue = true;
+    $("#cup").draggable('disable');
+}
+
+function updateDialogue() {
+
+    dialogueState++;
+    updateText(dialogueArray[dialogueState]);
+    
+    if(dialogueState >= 2 && dialogueState <= 13) {
+      
+        $("#character").html(headerArray[headerCount]);
+        headerCount++;
+        if(headerCount > 3) {
+            headerCount = 0;
+        }
+    }
+
+    if(dialogueState == 0) {
+        dialogueCanContinue = false;
+    }
+
+    if(dialogueState == 6) {
+        $("#bid").slideDown(1000);
+        dialogueCanContinue = false;
+    } 
+
+    if((dialogueState == 8 || dialogueState == 12) && reveal) {
+        removeBlackout();
+    }
+
+    if(dialogueState == 10) {
+        $("#bid").slideDown(1000);
+        dialogueCanContinue = false;
+    } 
+
+    if(dialogueState == 8 && lost) {
+        dialogueCanContinue = false;
+    }
+
+    if(dialogueState == 13 && lost) {
+        dialogueCanContinue = false;
+    }
+
+}
+
+$("#call").on("click", function() {
+    if(dialogueState == 6) {  
+        dialogueArray[7] = "Im calling it! Let's reveal the dice!"
+        dialogueArray[8] = " Oh dear, there is enough dice on the board for that number. Come back later and try again, you lose"
+        lost = true;
+        reveal = true;
+    }
+
+    if(dialogueState == 10) {
+        dialogueArray[11] = "Oh dear, I guess we have to show the dice!"
+        dialogueArray[12] = "Oh look! there are less then "  + tempText;
+        dialogueArray[13] = "Fine you called my bluff and beat me, I'll tell you what I know"
+        dialogueArray[14] = "I get around the ship a lot looking for people to play dice with, and I noticed that the First Mate had been hanging out a lot with Flynn the storeroom guard recently. Which was unusual considering they never have hung around each other much before. I thought nothing of it, until well, you know, the murder and all."
+        reveal = true;
+    }
+
+    $("#bid").slideUp(1000, function() {
+        updateText("Im calling it!");
+    });
+    dialogueCanContinue = true;
+})
+
+$("#continue").on("click", function() {
+   
+
+    if(dialogueState == 6) {
+        dialogueArray[7] = "Oho, Im not game to call it out as a bluff, so I will increase the bid to 2 fives! "
+        dialogueArray[8] = "3 sixes"
+
+        let getTotal6 = totals[5]; //see if player has rolled enough sixes to ruin the line, then switch bet to fives
+        tempText = "5 sixes!";
+        let tempNum = 6;
+       
+        if(getTotal6 >= 5) {
+            tempText = "5 fives!";
+            tempNum = 5;
+        }
+
+        dialogueArray[9] = "Arrgh, Im going all in! " + tempText;
+        dialogueArray[10] = " What will you do??"
+    }
+
+    if(tempNum = 6) {
+           tempText = "6 sixes!";
+        } else {
+            tempText = "6 fives!";
+        }
+        
+    if(dialogueState == 10) {
+        dialogueArray[11] = " Im calling it!! Time to reveal your dice!"
+        dialogueArray[12] = " Oh there is less then " + tempText + " You lost!"
+        dialogueArray[13] = " Good game, come back later if you want to play! Remember, information is on the line!"
+        lost = true;
+        reveal = true;
+    }
+
+    $("#bid").slideUp(1000, function() {
+        if(dialogueState < 8) {
+            updateText("3 Threes!")
+        }
+
+        if(dialogueState > 8) {
+
+            updateText(tempText);
+            
+        }
+    });
+    dialogueCanContinue = true;
+})
+
+$("#dialogueBox").on("click", function() {
+    if(dialogueCanContinue) {
+        updateDialogue();
+    }
+})
+
+function updateText(string) {
+    $("#text").html(string)
+}
+
+localStorage.setItem("Q2-Other", true);
+
+$("#backButton").on("click", function() {
+
+    window.location = 'CrewHall.html';
+})
+
+});
+
+</script>
+</head>
+<body>
+
+<div id="stage"> 
+
+    <div id="menuStuff"> </div>
+    <audio id="rollSound" src="Audio/Dice.wav"></audio>
+    <audio id="pingSound" src="Audio/ping.wav"></audio>
+
+    <img class="background-image" src="Images/dicetable.png"> 
+
+    <div id="playerHand">
+        <div class="dice"></div>
+        <div id="cupSide"> <img id="cup" src="Images/cup.png"> </div>
+    </div>
+
+    <div id="leftHand">
+        <div class="fakeDice">
+            <img class="blackout" src="Images/1.PNG" style="right: 30%; top: 30%;">
+            <img class="blackout" src="Images/3.PNG" style="right: 10%; top: 60%;">
+            <img class="blackout" src="Images/3.PNG" style="right: 30%; top: 3%;">
+            <img class="blackout" src="Images/5.PNG" style="right: 70%; top: 50%;">
+        </div>
+    </div>
+
+    <div id="topHand">
+        <div class="fakeDice">
+            <img class="blackout" src="Images/2.PNG" style="right: 35%; top: 20%;">
+            <img class="blackout" src="Images/1.PNG" style="right: 50%; top: 60%;">
+            <img class="blackout" src="Images/2.PNG" style="right: 10%; top: 60%;">
+            <img class="blackout"src="Images/5.PNG" style="right: 70%; top: 5%;">
+        </div>
+    </div>
+
+    <div id="rightHand">
+        <div class="fakeDice">
+            <img class="blackout" src="Images/3.PNG" style="right: 30%; top: 60%;">
+            <img class="blackout" src="Images/4.PNG" style="right: 60%; top: 60%;">
+            <img class="blackout" src="Images/6.PNG" style="right: 20%; top: 5%;">
+            <img class="blackout" src="Images/6.PNG" style="right: 70%; top: 5%;">
+        </div>
+    </div>
+
+    <div id="bid">
+        <button id="call"> Call the Bluff </button>    
+        <button id="continue"> Increase Bid </button>    
+    </div>
+
+
+
+    
+    <!-- <div id="draggable" style="background-color:red; width: 50px; height: 100px;"></div> -->
+
+
+
+    <div id="dialogueBox" class="bTest"> 
+        <div id="entireBox">
+            <div id="dialogueHeader"> <h2 id="character">  </h2>  </div>
+            <div id="text"> </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

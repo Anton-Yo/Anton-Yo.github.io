@@ -1,0 +1,129 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Banana Website</title>
+<link href="banana-styles.css" rel="stylesheet" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+$(document).ready(function() { 
+    state = 0;
+
+    $("#EasterEgg").hide();
+
+    $(".plates").mouseenter(function(){
+        $(".plates").addClass("pause");
+    });
+
+    $(".plates").mouseleave(function(){
+        $(".plates").removeClass("pause");
+    });
+
+    $(".blackyellow").click(function(){
+        
+        if(state== 0) {
+        $(".spinny").stop().fadeOut(1000);
+        $("#EasterEgg").stop().fadeIn(1200);
+        state = 1;
+
+        } else {
+        $(".spinny").stop().fadeIn(1200);
+        $("#EasterEgg").stop().fadeOut(1000);
+        state = 0;
+
+        }
+
+    
+        
+    });
+
+})
+
+</script>
+</head>
+
+<body class="bigLeaf">
+
+    <p id="EasterEgg"> Congrats, you found the hidden button! Those spinning bananas were annoying >:(</p>
+
+    <section class="headerSection">
+
+    <figure class="spinny">
+        <img class="factsImg" src="Images/SingleBanana.png" alt="Spinning banana">
+    </figure>
+
+    <figure class="spinny">
+        <img class="factsImg" src="Images/SingleBanana.png" alt="Spinning banana">
+    </figure>
+
+    <figure class="spinny">
+        <img class="factsImg" src="Images/SingleBanana.png" alt="Spinning banana">
+    </figure>
+
+    <h1 class="blackyellow"> Cool Banana Facts </h1>
+
+    <figure class="spinny">
+        <img class="factsImg" src="Images/SingleBanana.png" alt="Spinning banana">
+    </figure>
+
+    <figure class="spinny ">
+        <img class="factsImg" src="Images/SingleBanana.png" alt="Spinning banana">
+    </figure>
+
+    <figure class="spinny">
+        <img class="factsImg" src="Images/SingleBanana.png" alt="Spinning banana">
+    </figure>
+
+    </section>  
+
+    <section class="sushiTrainSection">
+
+       
+
+        <div class="plates" id="plates1"> 
+            <h3>Fact #1</h3>
+            <p> Bananas were supposedly named by Arabian slave traders who encountered old smaller variants of bananas.  They called them “<em>banan</em>”, the Arabic word for finger, due to bananas at the time being almost that small.  
+            </p> 
+        </div>
+
+        <div class="plates" id="plates2"> 
+            <h3>Fact #2</h3>
+            <p> According to the <a href="https://www.epa.gov/radtown/natural-radioactivity-food#:~:text=Bananas%20have%20naturally%20high%2Dlevels,(0.1%20microsieverts)%20of%20radiation." target="_blank">US Environmental Protection Agency</a>, bananas are very high in potassium, a small fraction of which will always be radioactive. This means that bananas emit .01 millirem of radiation which is not much. 
+                It would take eating 100 bananas to equal the amount of natural environmental radiation that the average person experiences daily.  
+            </p>
+        </div>
+
+        <div class="plates" id="plates3"> 
+            <h3>Fact #3</h3>
+            <p> Bananas are 75% water, no wonder they have to grow in such hot and humid conditions! As a bonus fact, bananas also can float in water! This means they are less dense then water, although it's  
+                 a little more complicated than that. You can divide the banana up so some parts of the banana sink. Check out <a href="https://yourfoodplanet.com/do-bananas-float-in-water/" target="_blank" >this! </a> 
+            </p> 
+        </div>
+
+        <div class="plates" id="plates4"> 
+            <h3>Fact #4</h3>
+            <p> Bananas are curved because when they are on the branch, they grow towards the sun! This is called negative geotropism which basically translates to “negative gravity”. 
+            </p> 
+        </div>
+
+    </section>
+
+
+    <footer> 
+    
+        <p> Navigation </p>
+    
+        <nav> 
+                    <a href=index.html> Homepage</a>
+                    <a href=BananaOrigin.html> History</a> 
+                    <a href=BananaLife.html> Lifecycle</a> 
+                    <a href=BananaTypes.html> Types</a> 
+                    <a href=BananaFacts.html> Cool Facts</a> 
+    
+        </nav>
+    
+    
+    </footer>
+
+</body>
+</html>

@@ -7,23 +7,326 @@
 <script>
     
     $(document).ready(function(){
-        $("h2").hide();
-    
+        
+        var moduleTitle;
+        var hoverColour = "rgb(230, 230, 230)";
+
+        $("button").click(function()
+        {
+            $(".popup-container").hide();
+        })
+
         $("h1").click(function()
         {
             $("h1").css("color", "red");
-            $("h2").show();
+            $("h3").show();
         })
+
+        $("#itch-link")
+        .on("mouseenter", function()
+        {
+            document.getElementById("itch-img").src = "Images/itchHover.png";
+        })
+        .on("mouseleave", function()
+        {
+            document.getElementById("itch-img").src = "Images/itch.png";   
+        })
+
+        $("#github-link")
+        .on("mouseenter", function()
+        {
+            document.getElementById("github-img").src = "Images/GithubHover.png";
+        })
+        .on("mouseleave", function()
+        {
+            document.getElementById("github-img").src = "Images/Github.png";   
+        })
+
+
+        //Messy but easier than making a loop.
+        $("#module1")
+        .on("click", function()
+        {
+            window.location.href = "P1.html";
+        })
+        // .on("mouseenter", function()
+        // {
+        //     moduleTitle = $(this).children(".container").children("h3");
+        //     moduleTitle.css("text-decoration", "underline");
+        //     addColour($("#module1"));
+        // })
+        // .on("mouseleave", function()
+        // {
+        //     moduleTitle.css("text-decoration", "none"); 
+        //     removeColour($("#module1"));
+        // })
+      
+        $("#module2")
+        .on("click", function()
+        {
+            window.location.href = "Soup.html";
+        })
+
+        // .on("mouseenter", function()
+        // {
+        //     moduleTitle = $(this).children(".container").children("h3");
+        //     moduleTitle.css("text-decoration", "underline");
+        //     addColour($("#module2"));
+        // })
+        // .on("mouseleave", function()
+        
+        $("#module3")
+        .on("click", function()
+        {
+            window.location.href = "TreeGame.html";
+        })
+        // .on("mouseenter", function()
+        // {
+        //     moduleTitle = $(this).children(".container").children("h3");
+        //     moduleTitle.css("text-decoration", "underline");
+        //     addColour($("#module3"));
+        // })
+        // .on("mouseleave", function()
+        // {
+        //     moduleTitle.css("text-decoration", "none");
+        //     removeColour($("#module3")); 
+        // })
+       
+
+        $("#module4")
+        .on("click", function()
+        {
+            window.location.href = "Presidevs.html";
+        })
+        // .on("mouseenter", function()
+        // {
+        //     moduleTitle = $(this).children(".container").children("h3");
+        //     moduleTitle.css("text-decoration", "underline");
+        //     addColour($("#module4"));
+        // })
+        // .on("mouseleave", function()
+        // {
+        //     moduleTitle.css("text-decoration", "none"); 
+        //     removeColour($("#module4"));
+        // })
+       
+
+        $("#module5")
+        .on("click", function()
+        {
+            window.location.href = "PCG.html";
+        })
+        // .on("mouseenter", function()
+        // {
+        //     moduleTitle = $(this).children(".container").children("h3");
+        //     moduleTitle.css("text-decoration", "underline");
+        //     addColour($("#module5"));
+        // })
+        // .on("mouseleave", function()
+        // {
+        //     moduleTitle.css("text-decoration", "none"); 
+        //     removeColour($("#module5"));
+        // })
+      
+
+        $("#module6")
+        .on("click", function()
+        {
+            window.location.href = "BeachChilling.html";
+        })
+        // .on("mouseenter", function()
+        // {
+        //     moduleTitle = $(this).children(".container").children("h3");
+        //     moduleTitle.css("text-decoration", "underline");
+        //     addColour($("#module6"));
+        // })
+        // .on("mouseleave", function()
+        // {
+        //     moduleTitle.css("text-decoration", "none"); 
+        //     removeColour($("#module6"));
+        // })
+       
+        $("#module7")
+        .on("click", function()
+        {
+            window.location.href = "Brandino.html";
+        })
+        // .on("mouseenter", function()
+        // {
+        //     moduleTitle = $(this).children(".container").children("h3");
+        //     moduleTitle.css("text-decoration", "underline");
+        //     addColour($("#module7"));
+        // })
+        // .on("mouseleave", function()
+        // {
+        //     moduleTitle.css("text-decoration", "none"); 
+        //     removeColour($("#module7"));
+        // })
+       
+
+        $("#module8")
+        .on("click", function()
+        {
+            window.location.href = "Banana.html";
+        })
+        // .on("mouseenter", function()
+        // {
+        //     moduleTitle = $(this).children(".container").children("h3");
+        //     moduleTitle.css("text-decoration", "underline");
+        //     addColour($("#module8"));
+        // })
+        // .on("mouseleave", function()
+        // {
+        //     moduleTitle.css("text-decoration", "none"); 
+        //     removeColour($("#module8"));
+        // })
+       
+        // function addColour(module) {
+        //     console.log("adding colour"); 
+        // }
+
+        // function removeColour(module) {
+        //     console.log("removing colour");
+           
+        // }
 
     })
 
+
 </script>
+<body>
 
+<nav>
+    <a id="name-title" href="index.html"> Anton Arens </a>
 
-<head>
-    <h1> The file is working? </h1>
-    <h2> And jquery is too! </h2>
-</head>
+    <div id="navigation-icons">
+        <a id="itch-link" href="https://itch.io/profile/soggytest" target="_blank"> <img class="icon" id="itch-img" src="Images/itch.png" > </a>
+        <a id="github-link" href="https://github.com/Anton-Yo" target="_blank"> <img class="icon" id="github-img" src="Images/Github.png" > </a>
+    </div>
+</nav>
+
+<div id="home-wrapper"> 
+    <div id="row1">
+        <h2 class="category-title"> Games </h2>
+        <ul class="module-list">
+            <li class="module clickable" id="module1">
+                <div class="container"> 
+                    <h3 class="project-title"> Phoenix One </h3>
+                </div>
+                <img class="module-img clickable" src="Images/P1 Logo.png" alt="Picture of a bird"> 
+                <div class="container"> 
+                    <p class="project-desc"> A 2D action-platformer focusing on ricochet mechanics. Designed and implemented game mechanics and audio. </p>
+                </div>
+            </li>
+
+           
+            <li class="module clickable" id="module2"> 
+                <div class="container"> 
+                    <h3 class="project-title"> We Only Make Soup </h3> 
+                </div>
+                <img class="module-img" src="Images/PreviewSoup.png" alt="Picture of a bird">
+                <div class="container">    
+                    <p class="project-desc"> Arcade style game where the player fulfill soup requests. Programmed most of the gameplay and UI. </p>
+                </div>
+            </li> 
+            
+
+            <li class="module clickable" id="module3"> 
+                <div class="container">
+                    <h3 class="project-title clickable"> Tree Game </h3> 
+                </div>
+                <img class="module-img clickable" src="Images/TreeGameLogo.png" alt="Picture of a bird"> 
+                <div class="container">    
+                    <p class="project-desc"> Idle tycoon clicker involving harvesting apples and upgrading your orchard. Lead gameplay designer and created the UI.  </p>
+                </div>
+            </li>   
+        </ul>
+
+        <ul class="module-list">
+            <li class="module clickable" id="module4">
+                <div class="container"> 
+                    <h3 class="project-title clickable"> Protect The Presidevs </h3> 
+                </div>
+                <img class="module-img clickable" src="Images/PresidevsLogo.png" alt="Picture of a bird"> 
+                <div class="container"> 
+                   <p class="project-desc"> 
+                    Arcade game where the player defends developers with their magnet powers.
+                    Scripted and animated the enemy monkey and basic UI. 
+                    </p>
+                </div>
+            </li>
+           
+        </ul>
+    </div>
+
+    <div id="row2">
+        <h2 class="category-title"> Unity Projects </h2>
+        <ul class="module-list">
+            <li class="module clickable" id="module5">
+                <div class="container"> 
+                    <h3 class="project-title clickable"> Procedural Dungeon Generator </h3>
+                </div>
+                <img class="module-img clickable" src="Images/PCG Logo.png" alt="Picture of a bird"> 
+                <div class="container">    
+                    <p class="project-desc"> Made a customisable procedural dungeon generator with the goal of being developer friendly. Conducted playtests to evaluate success and identify areas for improvement.  </p>
+                </div>
+            </li>
+
+            <li class="module clickable" id="module6">
+                <div class="container"> 
+                    <h3 class="project-title clickable"> VR Meditation Experience </h3>
+                </div>
+                <img class="module-img clickable" src="Images/VR Logo3.png" alt="Picture of a bird"> 
+                <div class="container">    
+                    <p class="project-desc"> Working with Liminal VR, I assisted in creating a calming meditation experience. I was responsible for client communication, audio, QA, and general C# scripting </p>
+                </div>
+            </li>
+        </ul>
+
+    </div>
+
+    <div id="row3">
+        <h2 class="category-title"> Websites </h2>
+        <ul class="module-list">
+            <li class="module clickable" id="module7">
+                <div class="container"> 
+                    <h3 class="project-title clickable"> The Brandino </h3>
+                </div>
+                <img class="module-img clickable" src="Images/Brandino Logo.png" alt="Picture of a bird"> 
+                <div class="container">    
+                    <p class="project-desc"> Web-based murder mystery game set on a pirate ship. Made using HTML, CSS and JQuery </p>
+                </div>
+            </li>
+
+            <li class="module clickable" id="module8">
+                <div class="container"> 
+                    <h3 class="project-title clickable"> Banana Facts </h3>
+                </div>
+                
+                <img class="module-img clickable" src="Images/Banana Logo.png" alt="Picture of a bird">
+                <!-- Obtained from https://pixabay.com/illustrations/banana-fruit-yellow-sweet-healthy-2850841/ -->
+               
+                <div class="container">    
+                    <p class="project-desc"> Website containing facts about bananas. Made using HTML, CSS and basic jQuery </p>
+                </div>
+            </li>
+
+            <li class="module-no-anim" id="module9">
+                <div class="container"> 
+                    <h3 class="project-title "> This Website </h3>
+                </div>
+                
+                <img class="module-img" src="Images/Website Logo.png" alt="Picture of a bird">
+                <!-- Obtained from https://pixabay.com/illustrations/banana-fruit-yellow-sweet-healthy-2850841/ -->
+               
+                <div class="container">    
+                    <p class="project-desc"> A website containing information about all my projects. Uses HTML, CSS and jQuery. </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
 
 
 

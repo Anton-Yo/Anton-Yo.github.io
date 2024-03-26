@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>The Brandino</title>
+<link href="brandino-styles.css" rel="stylesheet"/>
+<script src="js/jquery.js"></script>
+<script src="js/notebookHTML.js"></script>
+<script src="js/notebook.js"></script>
+<script src="js/ping.js"></script>
+<script src="js/preload.js"></script>
+<script>
+
+
+$(document).ready(function() { 
+
+    $("#backButton").click(function() {
+        window.location = 'FirstFloor.html'; 
+    })
+
+    $("#character").html("Lower Deck");
+
+     $(document).on({ // add animation to door class
+        mouseenter: function() {
+            $(this).addClass('pulse');
+           
+        },
+        mouseleave: function() {
+            $(this).removeClass('pulse');
+        }
+    }, '.door');
+
+    $(".door").click( function() {
+    
+    if($(this).attr("id") == "storeRoomDoor") {
+        window.location = "Storeroom.html";
+       
+    }
+
+    if($(this).attr("id") == "cookDoor") {
+        window.location = "CookInterview.html";
+    
+    }
+
+    if($(this).attr("id") == "crewHallDoor") {
+        window.location = "CrewHall.html";
+       
+    }
+}) 
+});
+
+</script>
+</head>
+<body>
+
+<div id="stage"> 
+
+    <!-- <h2 id="char-interview">Lower Deck</h2> -->
+
+    <img class="background-image" src="Images/secondfloor.png">
+
+    <div id="menuStuff"> </div>
+
+    <div class="door" id="storeRoomDoor"> <img src="Images/StoreDoor.png"> </div>
+    <div class="door" id="cookDoor"> <img src="Images/cook.png"> </div>
+    <div class="door" id="crewHallDoor"> <img src="Images/CrewDoor.png"> </div>
+
+    <div id="dialogueBox" class="bTest"> 
+        <div id="entireBox">
+            <div id="dialogueHeader"> <h2 id="character"> </h2>  </div>
+            <div id="text"> Where should I go to next? </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

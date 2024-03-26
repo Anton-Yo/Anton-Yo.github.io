@@ -1,8 +1,505 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap');
+
+body {
+    background-color: rgba(231, 231, 231, 0.712);
+    /* background-color: white; */
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400px;
+}
+
 h1 {
     color: black;
     cursor: pointer;
 }
 
 h2 {
-    color: purple;
+    color: black;
 }
+
+h3 {
+    color: black;
+}
+
+.module-img {
+    margin: auto;
+    max-width: 300px;
+    height: 200px;
+    display: flex;
+}
+
+.module {
+    width: 30%;
+    min-width: 400px;
+    max-width: 500px;
+    height: 30%;
+    min-height: 200px;
+    max-height: 330px;
+    margin: 20px;
+    animation: hoverAnim 2s infinite;
+    border-width: 2px;
+    border-style: groove;
+    border-color: black;
+    transition: box-shadow 0.5s;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.7), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
+    background-color: rgb(247, 247, 247);
+}
+
+.module:hover {
+    transform: scale(1.05);
+    transition: box-shadow 0.5s;
+    box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.7), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
+}
+
+.module-no-anim {
+    width: 30%;
+    min-width: 400px;
+    max-width: 500px;
+    height: 30%;
+    min-height: 200px;
+    max-height: 330px;
+    margin: 20px;
+    animation: hoverAnim 2s infinite;
+    border-width: 2px;
+    border-style: groove;
+    border-color: black;
+    transition: box-shadow 0.5s;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.7), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
+    background-color: rgb(247, 247, 247);
+}
+
+@keyframes scaleUp {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes scaleDown {
+    0% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.project-title {
+    text-align: center;
+    display: inline-flex;   
+    margin: 10px;
+    font-weight: bold;
+    font-size: 160%;
+}
+
+.project-desc {
+    height: 50px;
+    width: 98%;
+    font-size: 97%;
+    max-width: 450px;
+    margin-top: 10px;
+    display: inline-flex;  
+    text-align: center;
+    color: black;
+    /* background-color: red; */
+}
+
+nav {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    flex-direction: row;
+    display: flex;
+    justify-content: center;
+    background-color: black;
+    height: 55px;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    
+}
+
+#navigation-icons{
+    width: 500px;
+    height: 45px;
+    margin-top: 5px;
+    margin-right: 10px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    column-gap: 15px;
+}
+
+
+.name-title{
+    text-decoration: none;
+}
+
+.name-title:visited {
+    color: white;
+    text-decoration: none;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+#itch-img {
+   width: 45px;
+   height: 45px;
+   color: blue;
+}
+
+#github-img {
+    width: 44px;
+    height: 42px;
+    color: blue;
+}
+
+#github-img:hover {
+    background-color: white;
+}
+
+#name-title {
+    font-size: 150%;
+    font-weight: 800;
+    font-style: normal;
+    margin: auto;
+    color: white;
+    text-decoration: none;
+}
+
+.category-title {
+    /* background-color: pink; */
+    text-align: center;
+    width: fit-content; 
+    padding: 2px;
+    margin: auto;
+    margin-top: 45px;
+    margin-bottom: 5px;
+    font-weight: 600;
+    font-size: 250%;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+}
+
+header {
+    margin: none;
+    padding: none;
+    width: 100%;
+    height: 50px;
+}
+
+.module-list {
+    list-style-type: none;
+    margin: auto;
+    padding: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+
+/* ChatGPT told me of the @media rule  */
+@media (max-width: 1288px) {
+    .module-list {
+        flex-direction: column;
+    }
+
+    .module {
+        margin: auto;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .module-no-anim {
+        margin: auto;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .small-contribution-list {
+        max-height: 250px;
+    }
+
+    .module-list {
+        flex-direction: column;
+    }
+
+    .module {
+        margin: auto;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .left-side {
+        width: 45%;
+    }
+}
+
+.container {
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    display: flex; 
+}
+
+.wrapper {
+    margin: auto;
+    margin-top: 80px;
+    max-width: 1100px;
+    height: 760px;
+    padding: 20px;
+    position: relative;
+    border: 5px solid black;
+    display: none;
+}
+
+.red-background {
+    background-color: rgb(255, 187, 187);
+}
+
+#p1-background {
+    background-color: rgb(16, 19, 51);
+}
+
+#tree-background {
+    background:  rgba(11, 185, 11, 0.534);
+}
+
+#presidevs-background {
+    background: rgba(52, 215, 221, 0.486);
+}
+
+#VR-background {
+    background-color:  rgba(250, 149, 17, 0.651);
+}
+
+#PCG-background {
+    background-color: rgba(208, 127, 248, 0.74);
+}
+
+#brandino-background {
+    background-color: rgba(241, 93, 24, 0.616);
+}
+
+#banana-background {
+    background-color: rgba(255, 72, 102, 0.582);
+}
+
+.white-text {
+    color: white;
+}
+
+.white-text-link {
+    color: rgb(255, 128, 0);
+    text-decoration: none;
+    font-size: 102%;
+}
+
+.info-title {
+    margin: auto;
+    margin-top: none;
+    text-align: center;
+    display: block;
+    font-size: 240%; 
+    height: 50px;
+    padding-top: -1%;
+    padding-bottom: 2%;
+}
+
+.p1-info-title {
+    margin: auto;
+    margin-top: none;
+    text-align: center;
+    display: block;
+    font-size: 220%; 
+    height: 50px;
+    padding-top: -1%;
+    padding-bottom: 3%;
+}   
+
+.page-img {
+    width: 100%; /* or 517px at max width*/
+    height: 49%;
+    position: relative;
+}
+
+.left-side {
+    /* background-color: red; */
+    width: 48.5%;
+    max-height: 95%;
+    overflow: auto;
+    float: left;
+    position: relative;
+    
+}
+
+.right-side {
+    /* background-color: blue; */
+    width: 49.3%;
+    height: 90%;
+    float: right;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    padding-left: 20px;
+}
+
+.black-border {
+    border-left: solid 3px black;
+}
+
+.white-border {
+    border-left: solid 3px white;
+}
+
+.project-page-desc {
+    font-weight: 600;
+    padding: 10px;
+    margin-right: 1%;
+    line-height: 1.2;
+    margin-top: -2%;
+}
+
+h4 {
+    margin: auto;
+    padding: 0px 10px 0px;
+    font-size: 130%;
+    font-weight: 700;
+}
+
+.small-contribution-list {
+    margin-right: 1%;
+    margin-top: 1em;
+    max-height: 500px;
+}
+
+.small-contribution-list > li {
+    padding: 2px;
+    font-weight: 800;
+    font-size: 110%;
+}
+
+.small-contribution-list > li > ul {
+    margin-top: 2px;
+    margin-bottom: 6px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.small-contribution-list > li > ul > li {
+    font-size: 85%;
+    padding: 6px 0px 5px 0;
+    font-weight: 600;
+}
+
+.big-contribution-list {
+    margin-right: 1%;
+    margin-top: 1em;
+    overflow: auto;
+}
+
+.big-contribution-list > li {
+    padding: 2px;
+    font-weight: 600;
+    font-size: 100%;
+}
+
+.big-contribution-list > li > ul > li {
+    font-size: 90%;
+    padding-top: 1%;
+    padding-bottom: 1.5%;
+    font-weight: 500;
+}
+
+#back-button {
+    width: 45px;
+    height: 45px;
+    /* background-image: url("Images/back.png"); */
+    /* <a href="https://www.flaticon.com/free-icons/undo" title="undo icons"do icons created by Freepik - Flaticon</a>>Un */
+    background-size: contain;
+    position: absolute;
+    top: 1.35%;
+    left: 2%;
+}
+
+#back-button-img {
+    width: 30px;
+    height: 30px;
+}
+
+#row1 {
+    padding: 0px;
+    width: 100%;
+    margin-top: 120px;
+}
+
+#p1-title {
+    width: 320px;
+    height: 55px;
+    margin-bottom: 10px;
+}
+
+.in-text-link {
+    color: rgb(34, 34, 255);
+    text-decoration: none;
+    font-size: 102%;
+}
+
+.in-text-link:hover {
+    text-decoration: underline;
+}
+
+
+@font-face {
+    font-family: 'SnappyServiceNF';
+    src: url('fonts/SnappyServiceNF.ttf');
+}
+
+@font-face {
+    font-family: 'MadimiOne';
+    src: url('fonts/MadimiOne-Regular.ttf')
+}
+
+@font-face {
+    font-family: 'Marker';
+    src: url('fonts/PermanentMarker-Regular.ttf')
+}
+
+#soup-title {
+    font-family: SnappyServiceNF;
+    font-weight: 400;
+}
+
+.page-video {
+    width: 100%;
+    height: 100%;
+}
+
+.video-container {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#home-wrapper {
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    overflow: hide;
+    margin: auto;
+}
+
+
+
+

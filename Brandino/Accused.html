@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>The Brandino</title>
+<link href="brandino-styles.css" rel="stylesheet"/>
+<script src="js/jquery.js"></script>
+<script src="js/ping.js"></script>
+<script src="js/preload.js"></script>
+<script>
+
+
+$(document).ready(function() { 
+
+    var dialogueState = 0;
+    let dialogueArray = [];
+    let headerArray = [];
+    let name = localStorage.getItem("name");
+
+    headerArray[0] = "Captain";
+    headerArray[1] = "Captain";
+
+
+    dialogueArray[0] = "Here we go " + name + " this is what all your work has come down too";
+    dialogueArray[1] = "Lets interrogate this suspect and see if they were the one who has murdered Flynn and stolen the key to the treasure";
+  
+
+    const Accused = {
+        Cook: "Cook",
+        Gunner: "Gunner",
+        FirstMate: "FirstMate"
+    }
+
+
+
+    const suspect = localStorage.getItem("Accused");
+    $("#lockedUpPirate").hide();
+    if(suspect == "GunnerSuspect") {
+        $("#lockedUpPirate").append("<img id='prisonerG' src='Images/Gunner.png'/>");
+        dialogueArray[2] = "So Gunner, what do you have to say for yourself now that we caught you red handed?";
+        dialogueArray[3] = "This is ridiculous! Everyone knows I hated Flynn, but I wouldn't kill him and sell out to the Pirate Lord";
+        dialogueArray[4] = "I wasn't even close to the crime scene! Oh dear, now the Pirate Lord is going to come attack us, since you have wasted time accusing me!";
+        headerArray[1] = "The Gunner";
+    }
+
+    if(suspect == "FMSuspect") {
+       
+        $("#lockedUpPirate").append("<img id='prisonerF' src='Images/FirstMate.png'/>");
+        dialogueArray[2] =  "So First Mate, what do you have to say for yourself now that we caught you red handed?"
+        dialogueArray[3] = "I would never do this! Why would I betray my ship and crew to help the Pirate Lord? I don't even know Flynn!";
+        dialogueArray[4] = "...";
+        dialogueArray[5] = "Ok, you got me. This is not my ship anymore, not since you decided to give this ship to your nephew rather then me! I was supposed to get this ship after you retired! The Pirate Lord was going to give me the ship if I stole the key to the treasure and so I had to";
+        dialogueArray[6] = "I'd been planning this for weeks, consorting with Flynn and learning his movement patterns. I tried to frame the cook by using a knife from the kitchen, because I know he would be a prime suspect considering they often hung out";
+        dialogueArray[7] = "Curse you all! I'll tell you where the key is if you just drop me off in the nearest prison, just please don't make me walk the plank. It's in my room underneath a floorboard, just knock around until you find it. Oh and also can you bring me my compass? I seem to have misplaced it..."
+        headerArray[1] = "The First Mate";
+    }
+
+    if(suspect == "CookSuspect") {
+       
+        $("#lockedUpPirate").append("<img id='prisonerC' src='Images/cook.png'/>");
+        dialogueArray[2] =  "So Cook, what do you have to say for yourself now that we caught you red handed?"
+        dialogueArray[3] = "I hated Flynn for always blackmailing me, but I wouldn't outright kill him for it! Im not even sure if I could, he was a strong warrior";
+        dialogueArray[4] = "is this because one of the knifes from the kitchen went missing?? I'm not always in there someone else could've taken it";
+        headerArray[1] = "The Cook";
+    }
+
+
+    $('div#stage').click(events);
+
+    function events() {
+    
+        $("#text").html(dialogueArray[dialogueState]);
+
+        dialogueState++;
+
+        if(dialogueState > 3) {
+            $("#captainAccuse").fadeOut(300, function() {
+                $("#lockedUpPirate").fadeIn(200, function() {
+                    $("#character").html(headerArray[1]);
+                });
+                
+            });
+        }
+
+        if(dialogueState > dialogueArray.length) {
+            $("#stage").fadeOut(800, function(){
+               
+            if(suspect == "GunnerSuspect") {
+                window.location = "BadEnding.html";
+            }
+
+            if(suspect == "CookSuspect") {
+                window.location = "BadEnding.html";
+            }
+
+            if(suspect == "FMSuspect") {
+                window.location = "GoodEnding.html";
+            }
+
+
+            });
+          
+        }
+
+    }
+
+});
+
+</script>
+</head>
+<body>
+
+<div id="stage"> 
+
+    <img class="background-image" src="Images/Brig.jpg"> 
+
+    <div id="lockedUpPirate"> </div>
+
+    <img id="captainAccuse" src="Images/Captain.png">
+    
+    <div id="dialogueBox" class="bTest"> 
+        <div id="entireBox">
+            <div id="dialogueHeader"> <h2 id="character"> Captain </h2>  </div>
+            <div id="text"> <em> Click here to start! </em> </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

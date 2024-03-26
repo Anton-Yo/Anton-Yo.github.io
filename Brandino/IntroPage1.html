@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>The Brandino</title>
+<link href="brandino-styles.css" rel="stylesheet"/>
+<script src="js/jquery.js"></script>
+<script src="js/notebook.js"></script>
+<script src="js/ping.js"></script>
+<script src="js/preload.js"></script>
+<script>
+
+
+$(document).ready(function() { 
+
+    let dialogueArray = [];
+    let dialogueState = 0;
+    let defaultName = "Jack";
+
+    
+    dialogueArray[0] = "<em> Click here to start! </em>"
+    dialogueArray[1] = "How did we get to this position uhhh... something something your name nephew? All the crew members' lives on the line, a bloody murder on <strong> MY </strong> ship? Curse Blackbeard's toes, this job doesn't pay enough!!"
+    dialogueArray[2] = "Ay, nephew could you remind me of your name again please?"
+
+    progressDialogue(); // progress once to default state
+    $('#dialogueBox').click(progressDialogue);
+
+    function progressDialogue() {
+
+       
+        
+        if(dialogueState == 3) { //get name from player
+        let person = prompt("Please enter your name", "");
+
+        if (person != null) {
+            defaultName = person; //can use to hack in html but hey, no one would right
+            localStorage.setItem("name", defaultName);
+        }
+
+        dialogueArray[3] = "Argghhh yes it was " + defaultName + ". Well " + defaultName + " there's only one way to get through this. And it's to solve this murder before the Pirate Lord gets here, otherwise who knows what is going to happen. Screw you ever inheriting this ship if that were to come to pass!"
+        dialogueArray[4] = "I'm going to need some help though, I can't do this without yer help and that of the crew. I'll send a quick blessing to the sea in the hopes that <em> someone </em> out there, might be able to sway our decisions to the true course."
+        dialogueArray[5] = "Now, I think it would be worthwhile to start from the beginning, after all that way we can't miss anything that might be vital to the case"
+        dialogueArray[6] = "So let me think, it all started last night, when we were all celebrating a successful mission with perhaps a little too much rum..."
+        }
+
+        $("#text").html(dialogueArray[dialogueState]);
+        dialogueState++;
+
+        if(dialogueState > dialogueArray.length) {
+            $("#stage").fadeOut(1300, function(){
+                window.location = "IntroPage2.html";
+            });
+          
+        }
+    }
+
+});
+
+</script>
+</head>
+<body>
+
+<div id="stage"> 
+
+    <!-- <audio id="ping" src="Audio/ping.wav"> </audio> -->
+    <img class="background-image" src="Images/Captains quarters.png">
+
+    <div id="captain">
+        <img src="Images/Captain2.png">
+    </div>
+
+    <div id="dialogueBox" class="bTest"> 
+        <div id="entireBox">
+            <div id="dialogueHeader"> <h2 id="character"> Captain </h2>  </div>
+            <div id="text"> <em> Click here to start! </em> </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

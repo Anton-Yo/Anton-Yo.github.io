@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+<title> Anton's Website </title>
+<link href="styles.css" rel="stylesheet"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<script>
+    
+    $(document).ready(function(){
+        $(".wrapper").css("display", "block");
+
+        $("#itch-link")
+        .on("mouseenter", function()
+        {
+            document.getElementById("itch-img").src = "Images/itchHover.png";
+        })
+        .on("mouseleave", function()
+        {
+            document.getElementById("itch-img").src = "Images/itch.png";
+        })
+
+        $("#back-button").on("click", function()
+        {
+            window.location.href = "index.html";
+        })
+
+    })
+
+</script>
+
+<body>
+
+    <nav>
+        <a id="name-title" href="index.html"> Anton Arens </a>
+        <div id="navigation-icons">
+            <a id="itch-link" href="https://itch.io/profile/soggytest" target="_blank"> <img class="icon" id="itch-img" src="Images/itch.png" > </a>
+            <a id="github-link" href="https://github.com/Anton-Yo" target="_blank"> <img class="icon" id="github-img" src="Images/Github.png" > </a>
+        </div>
+    </nav>
+
+    <div class="wrapper" id="tree-background">
+       
+        <button class="clickable" id="back-button"><img src="Images/back.png" id="back-button-img"> </button>
+        <h2 class="info-title"> Tree Game </h2>
+   
+       
+        
+        <div class="left-side">
+            <p class="project-page-desc"> 
+                Winner of the People's Choice award at the Macquarie University's Revive Game Jam, 
+                Tree Game is an idle tycoon clicker, where you grow and harvest apples, spending the fruits of your labour to unlock upgrades for your orchard.
+                This was the first game jam I participated in, and learnt a lot about making a UI that is easy for players to understand and use.
+                Play the game on <a href="https://lstandsforwinner.itch.io/phoenix-one-demo" target="_blank" class="in-text-link"> itch.io. </a>
+            </p>
+
+            <h4> My Contributions: </h4>
+            <ul class="small-contribution-list">
+                <li> Developing the UI 
+                    <ul> 
+                        <li> Created a script for each UI menu, including a simple upgrade/crafting menu UI </li>
+                        <li> Adapted and reworked according to supervisors feedback </li>   
+                    </ul>
+                </li>
+
+                <li> Upgrades
+                    <ul> 
+                        <li> Implemented the code behind the upgrade system, making sure each upgrade has the desired effect </li>   
+                    </ul>
+                </li>
+
+                <li> Tree Removal
+                    <ul> 
+                        <li> Implemented the ability to remove trees from plots </li>
+                        <li> Added a UI button, as well as a shovel to follow the player's mouse for readability </li>   
+                    </ul>
+                </li>
+            
+            </ul>
+        </div>
+        
+        <div class="right-side black-border">
+            <img class="page-img" id="top-img" src="Images/Treegame.png">
+            <img class="page-img" id="bottom-img" src="Images/Treegraft.png">
+        </div>
+
+        
+       
+    </div>
+
+
+</body>
+
+
+
+
+</html>

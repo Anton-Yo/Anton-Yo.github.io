@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>The Brandino</title>
+<link href="brandino-styles.css" rel="stylesheet"/>
+<script src="js/jquery.js"></script>
+<script src="js/notebookHTML.js"></script>
+<script src="js/notebook.js"></script>
+<script src="js/ping.js"></script>
+<script src="js/preload.js"></script>
+<script>
+
+
+$(document).ready(function() { 
+    
+    let dialogueArray = [];
+    let dialogueState = 0;
+    let name = localStorage.getItem("name");
+
+    if(!localStorage.getItem("chat")) {
+
+    dialogueArray[0] = "Hey Cap Jr! Long time no see, sorry to hear about the murder and mess and all that. Let me know if there's anything I can do!"
+    dialogueArray[1] = "Oh, I overhead Tim the gambler talking earlier, mentioning something about last night's events. However, he said that he would only tell his secret info if someone was to beat him in a game of Liar's Dice!!"
+    dialogueArray[2] = "Isn' fair an' all considering we all know Tim is a dirty cheat, he's just using the information to attract more people to his dice game he is"
+    dialogueArray[3] = "Hey but don't you worry Captain, I'll help ya do a little cheating of your own. Just keep an eye out when you're playing, and I'll make sure to keep ONE eye on the enemies dice"
+    dialogueArray[4] = "Haha, get it " + name + "?? One Eye?? Ha! Hey wait! Why are you leaving???"
+    
+    } else {
+        dialogueArray[0] = "Hey " + name + ", stop talking to me and get investigating! And don't forget I'll help you with the dice game!"   
+    }
+    
+
+    progressDialogue();
+
+    $('#dialogueBox').click(progressDialogue);
+
+    function progressDialogue() {
+
+        $("#text").html(dialogueArray[dialogueState]);
+        dialogueState++;
+        if(dialogueState > dialogueArray.length) {
+            localStorage.setItem("chat", true);
+            window.location = 'CrewHall.html';
+        }
+
+    }
+
+    $("#backButton").on("click", function() {
+        window.location = 'CrewHall.html';
+    })
+
+});
+
+</script>
+</head>
+<body>
+
+<div id="stage"> 
+
+    <div id="menuStuff"> </div>
+
+    <img class="background-image" src="Images/crewhall.png"> 
+
+    <div class="pirate" id="casualchat-pirate">
+        <img class="piratepic" src="Images/CasualChat.png"> 
+   </div>
+
+   <div id="dialogueBox" class="bTest"> 
+    <div id="entireBox">
+        <div id="dialogueHeader"> <h2 id="character"> One-Eyed Jimbo </h2>  </div>
+        <div id="text"> </div>
+    </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,267 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>The Brandino</title>
+<link href="brandino-styles.css" rel="stylesheet"/>
+<script src="js/jquery.js"></script>
+<script src="js/notebookHTML.js"></script>
+<script src="js/notebook.js"></script>
+<script src="js/ping.js"></script>
+<script src="js/preload.js"></script>
+<script>
+
+$(document).ready(function() { 
+    
+    let pageState = 0;
+    let pageStateCanIncrease = true;
+    let startQuiz = false;
+    let count = 0;
+    let questionCount = 0;
+    let quizWon = false;
+    let quizFailed = false;
+    let name = localStorage.getItem("name"); 
+
+    $("#character").html(name);
+
+    $('#dialogueBox').on("click", function() {
+        events();
+    })
+
+    $("#backButton").on("click", function() {
+        window.location = 'CrewHall.html';
+    })
+
+    $("#quiz-scene, #question, #answers, #question-header").hide();  //hide quiz scene shit
+
+function events() {  //keeps track of dialogue box text
+    
+    if(pageState == 0) {
+        if(localStorage.getItem("QuizVisited") == true) {
+            $("#character").html("Quiz Pirate");
+            updateText("Back again so soon? Better get ready! I'll give you another shot at the quiz!");
+            pageState+=2;
+        } else { 
+            $("#character").html("Quiz Pirate");
+            updateText("Ay, who's that approaching me?? Is that an avid quiz taker?  Magnificent!");
+            localStorage.setItem("QuizVisited", true);
+        }
+        pageState++;
+    } else if(pageState == 1) {
+        updateText("Oh, you're looking for information about the events of last night? Yeah I discovered something, but I'm not just going to tell you without a little fun first");
+        pageState++;
+
+    } else if(pageState == 2) {
+        updateText("I've been gathering information for the past couple weeks and creating a quiz, if you can answwer all the questions I will tell you what you want to know");
+        pageState++;
+    } else if(pageState == 3) {
+
+        $("#quiz-scene").fadeIn(400, function() {
+                // pageStateCanIncrease = false;
+                updateText("Ok, lets get this party started");
+          
+                console.log("Quiz start");
+        });
+        
+        
+        if(startQuiz) {
+            pageState++;
+        }
+    
+        
+    } else if(pageState == 4) {
+      
+       
+        if(quizWon) {
+            updateText("That was some impressive ship related knowledge there my friend, aye for that I'll tell you what you want to know");
+            pageState++;
+        }
+
+        if(quizFailed) {
+            updateText("But don't you worry, Ill give you some time to research and then try again! See you again soon!");
+        }
+
+    } else if(pageState == 5) {  
+        updateText("I've heard that the First Mate never goes without his compass, it was a family heirloom or something. Just this morning he's been asking around if anyone has seen it."); 
+        pageState++;
+    
+    } else if(pageState == 6) {
+        updateText("It wouldn't be too out of the ordinary except for the fact that there has been a murder on board. Is it just a coincidence or is it something more sinister? I've been around a long while, if you can tell from my looks and this tickles my thinking bone")
+        pageState++;
+    
+    } else if (pageState == 7) {
+        updateText("Now get out of here, I've got to go come up with new questions for the next customer seeing as these were too easy")
+    }
+}
+
+function displayQuestion() { // question text goes here
+
+    if(questionCount == 0) {
+        $("#question").empty();
+        $('#question').html("If I was going to the starboard side of the ship, where would I be going? ");
+        $("label[for='A']").html("Left");
+        $("label[for='B']").html("Right");
+        $("label[for='C']").html("Front");
+        $("label[for='D']").html("Back");
+    }
+
+    if(questionCount == 1) {
+        $("#question").empty();
+        $('#question').html("Whats the difference between a Brigantine and a Galleon");
+        $("label[for='A']").html("Brig has 2 masts, whereas a Galleon can have more");
+        $("label[for='B']").html("Brig has 3 sails whereas a Galleon has 4");
+        $("label[for='C']").html("One is a rowboat, one is a ship");
+        $("label[for='D']").html("A brigantine has one floor, whereas a Galleon has multiple");
+    }
+
+    if(questionCount == 2) {
+        $("#question").empty();
+        $('#question').html("What is the role of a Bosun on a ship?");
+        $("label[for='A']").html("He's the cook's assistant");
+        $("label[for='B']").html("In charge of equipment and crew");
+        $("label[for='C']").html("Sits in the crows nest on lookout");
+        $("label[for='D']").html("Cleans the ship");
+    }
+
+    if(questionCount == 3) {
+        $("#question").empty();
+        $('#question').html("How many crew members would a medium size ship, like the Brandino usually have? Approximately?");
+        $("label[for='A']").html("20");
+        $("label[for='B']").html("60");
+        $("label[for='C']").html("90");
+        $("label[for='D']").html("150");
+        
+    }
+    
+} 
+
+$('#submit-answer').on("click", function() { //Changes questions and checks if right when they submit
+
+    let isRight = false;
+
+    if(questionCount == 0 && $('#B').is(":checked")) {
+        questionCount++;
+        isRight = true;
+        displayQuestion();
+       
+    } else if(questionCount == 1 && $('#A').is(":checked")) {
+        questionCount++;
+        isRight = true;
+        displayQuestion();
+        
+    } else if(questionCount == 2 && $('#B').is(":checked")) {
+        questionCount++;
+        isRight = true;
+        displayQuestion();
+        
+    } else if(questionCount == 3 && $('#C').is(":checked")) {
+        isRight = true;
+        $("#quiz-scene").fadeOut(300);
+        updateText("Golly gosh you got them all! Aren't you one smart cookie!");
+        pageState++;
+        quizWon = true;
+
+        localStorage.setItem("Q3-Other", true);
+    }
+
+    if(!isRight) {
+        updateText("Unfortunately that was not correct :(");
+        quizFailed = true;
+        pageState++;
+        $("#quiz-scene").fadeOut(300);
+    }
+
+    $('input[type=radio]').prop("checked", false);
+    
+
+})
+
+$('#quiz-start').on("click", function() { //after start button clicked, start the count check and timer
+    $('#quiz-start').fadeOut(100);
+    $("#question, #answers, #question-header").fadeIn(500);
+    displayQuestion();
+    startQuiz = true; 
+})
+
+function updateText(string) { //easy format for updating text
+    $("#text").html(string);
+}
+  
+});
+
+</script>
+</head>
+<body>
+
+<div id="stage"> 
+
+    <div id="menuStuff"> </div>
+
+    <img class="background-image" src="Images/crewhall.png"> 
+    
+    <div class="pirate" id="Quizzical-pirate">
+         <img class="piratepic" src="Images/Quiz.png"> 
+    </div>
+
+    <div id="quiz-scene">  
+        <div id="pirates-quiz">  
+            <div style="background-color: rgba(255, 255, 255, 0.7); width: 500px; height: 400px;">
+                <button id="quiz-start"> Start </button> 
+            
+                    <div id="question-header"> Question: </div>
+                    <div id="question"></div>
+                <div id="answers"> 
+                <fieldset>
+                    <legend>Select an answer:</legend>
+                
+                    <div>
+                      <input type="radio" id="A" name="answer" value="A">
+                      <label for="A">A</label>
+                    </div>
+                
+                    <div>
+                      <input type="radio" id="B" name="answer" value="B">
+                      <label for="B">B</label>
+                    </div>
+                
+                    <div>
+                      <input type="radio" id="C" name="answer" value="C">
+                      <label for="C">C</label>
+                    </div>
+                
+                    <div>
+                        <input type="radio" id="D" name="answer" value="D">
+                        <label for="D">D</label>
+                    </div>
+                    
+                </fieldset>
+                <input type="submit" id="submit-answer" value="Submit">
+               
+            
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <div> 
+
+    </div>
+
+    <!-- <h2 id="AW-instructions"> Click the Space bar to PUSHHHHHHH!!!</h2> -->
+    
+    <div id="dialogueBox" class="bTest"> 
+        <div id="entireBox">
+            <div id="dialogueHeader"> <h2 id="character"> </h2>  </div>
+            <div id="text"> This pirate seems to know something, but how can I convince him to tell me? </div>
+        </div>
+    </div>
+   
+
+</div>
+
+<!-- heavily inspired by https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio -->
+
+
+</body>
+</html>

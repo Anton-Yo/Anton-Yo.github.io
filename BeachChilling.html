@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+<title> Anton's Website </title>
+<link href="styles.css" rel="stylesheet"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<script>
+    
+    $(document).ready(function(){
+        $(".wrapper").css("display", "block");
+
+        $("#itch-link")
+        .on("mouseenter", function()
+        {
+            document.getElementById("itch-img").src = "Images/itchHover.png";
+        })
+        .on("mouseleave", function()
+        {
+            document.getElementById("itch-img").src = "Images/itch.png";
+        })
+
+        $("#back-button").on("click", function()
+        {
+            window.location.href = "index.html";
+        })
+
+    })
+
+</script>
+
+<body>
+
+    <nav>
+        <a id="name-title" href="index.html"> Anton Arens </a>
+        <div id="navigation-icons">
+            <a id="itch-link" href="https://itch.io/profile/soggytest" target="_blank"> <img class="icon" id="itch-img" src="Images/itch.png" > </a>
+            <a id="github-link" href="https://github.com/Anton-Yo" target="_blank"> <img class="icon" id="github-img" src="Images/Github.png" > </a>
+        </div>
+    </nav>
+
+    <div class="wrapper" id= "VR-background">
+       
+        <button class="clickable" id="back-button"><img src="Images/back.png" id="back-button-img"> </button>
+        <h2 class="info-title"> VR Meditation Experience </h2>
+   
+       
+        
+        <div class="left-side">
+            <p class="project-page-desc"> 
+                I worked with <a href="https://liminalvr.com/" class="in-text-link">Liminal VR</a>, a Melbourne based VR company as part of a university course. 
+                Working in a team of 4 students, we designed and developed a beach-based meditation experience called 'Beach Chilling'.
+                Lacking artists, our group struggled finding free assets that worked well in VR but nonetheless, we were proud of what we ended up creating.
+                It was a great learning experience, working professionally on a project from start to finish.
+            </p>
+
+            <h4> My Contributions: </h4>
+            <ul class="small-contribution-list">
+                <li> Client Communication
+                    <ul> 
+                        <li> Communicated with Liminal VR nearly every week, sending through builds and communicating any known issues </li>
+                    </ul>
+                </li>
+                
+                <li> QA
+                    <ul> 
+                        <li> As part of weekly build submission, I would load and troubleshoot each build on a VR headset to identify any issues, e.g. framerate or mistimed audio</li>
+                        <li> Fixed up simple problems and communicated any major problems to client and team </li>
+                    </ul>
+                </li>
+
+                <li> Audio
+                    <ul> 
+                        <li> Implemented a script to manage the audio sources throughout the experience </li>
+                        <li> Wrote and recorded the meditation script and voiceover </li>
+                        <li> Edited bird, tree, wave and wind sounds using Audacity </li>
+                    </ul>
+                </li>
+
+                <li> Sun Movement
+                    <ul> 
+                        <li> Implemented a simple script for moving the sun according to the experience length </li>
+                    </ul>
+                </li>  
+            </ul>
+        </div>
+        
+        <div class="right-side black-border">
+            <div class="page-img"> 
+                <div class="video-container">
+                    <video class="page-video" controls>
+                        <source src="Videos/ShortenedVRVideo.mp4" type="video/mp4"> 
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+            
+            <img class="page-img" src="Images/VR Sideview.png">
+        </div>
+
+        
+       
+    </div>
+
+
+</body>
+
+
+
+
+</html>

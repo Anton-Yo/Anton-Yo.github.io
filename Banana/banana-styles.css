@@ -1,0 +1,503 @@
+ 
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 550;
+    
+} 
+
+body:after {        /* taken from https://stackoverflow.com/questions/643879/css-to-make-html-page-footer-stay-at-bottom-of-the-page-with-a-minimum-height-b */
+    content: '';
+    height: 80px;
+    display: block;
+}
+
+a:visited, a:link {
+    text-decoration: none;
+    color: black;
+}
+
+.greenCover {
+    background-image: url("Images/Leaf.jpg"); 
+    background-color:rgba(154, 205, 50, 0.5);
+}
+
+.bigLeaf {
+    background-image: url("Images/Leaf2.jpg"); /* src= https://pixabay.com/users/gemack-5233/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=50020*/
+    background-color:rgba(154, 205, 50, 0.5);
+    background-position: center;
+    background-size: cover;
+}
+
+p{
+    font-weight: 550;
+}
+
+footer {
+    position: fixed;
+    background-color: black;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+footer p {
+    color: yellow;
+    padding: 10px;
+    text-align: center;
+    margin: auto;
+    font-size: 150%;
+}
+
+h1 {
+    font-size: 200%;
+    text-decoration: none;
+    text-align: center;
+}
+
+h4 {
+    font-size: 110%;
+    margin-top: 8%;
+}
+
+.title {
+    text-align: center;
+    text-decoration: underline;
+    background-color: #FFED4D;
+    border: 3px solid black;
+    color: black;
+    width: 25%;
+    margin: auto;
+    padding: 20px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+nav {
+    flex-direction: row;
+    display: flex;
+    justify-content: space-around;
+    font-size: 130%;
+}
+
+nav a{
+    background-color: black;
+    color: white;
+    padding:10px;
+}
+
+
+nav a:visited, nav a:link {
+    color: white;
+    text-decoration: none;
+    text-justify: center;
+}
+
+nav a:hover {
+    color: yellow;
+}
+
+.homepageTxt {
+    font-size: 150%;
+}
+
+.homeSection {
+    width: 60%;
+    height: 40%;
+    /* min-height: 500px; */
+    /* max-width: 1000px; */
+    max-height: 550px;
+    background-image: linear-gradient(rgba(164, 210, 73, 1), rgba(248, 248, 51, 1));
+    margin: auto;
+    display: flex; 
+    justify-content: space-evenly;
+    margin-bottom: 100px;
+    padding: 10px;
+}
+
+button {
+    color: black;
+    background-color: yellow;
+    border: 2px solid black;
+    font-size: 125%;
+    padding: 10px;
+    text-align: center; 
+    width: 28%;
+    min-width: 150px;
+    height: 50px;
+    bottom: 0;
+}
+
+.rightButton {
+    float:right;
+}
+
+.leftButton {
+    left: 0;
+}
+
+.imgPart {
+    width: 50%;
+    padding:10px;
+}
+
+.textPart {
+    width: 50%;
+    padding:10px 20px;
+    position: relative;
+}
+
+.homeImg{
+    width: 100%;
+    height: 100%;
+}
+
+.typesImg{
+    width: 100%;
+    height: 100%;
+    min-height: 350px;
+    max-height: 350px;
+
+}
+
+.originImg {
+    width: 250px;
+    height: 200px;
+    border: 1px solid black;
+}
+
+.factsImg {
+    width: 150px;
+    height: 100px;
+}
+
+.bananaTypeBox {
+    width: 33.33%;
+    float: left;
+    padding: 30px;
+    margin-bottom: 5px;
+    box-sizing: border-box;
+    border: 1px solid black;
+    background-image: linear-gradient(rgba(154, 205, 50, 0.95), rgba(255, 255, 0, 0.8))
+}
+
+.bananaTypeBox > h2 {
+    text-decoration: underline;
+}
+
+.bananaTypeBox > p {
+    height: 30px;
+}
+
+.clearfix::after { /* from w3schools for clearing float issues*/
+    content: "";
+    clear: both;
+    display: table;
+}
+
+
+#hider {
+    text-align: center;
+    padding: 25px 0;
+    margin-bottom: 50px;
+}
+
+#revealButton {
+    color: black;
+    background-color: yellow;
+    border: 2px solid black;
+    font-size: 125%;
+    text-align: center; 
+    width: 200px;
+    height: 75px;
+}
+
+h2 {
+    text-align: center;
+    font-size: 160%;
+}
+
+
+.slideshow {
+    display: flex;
+    background-image: linear-gradient(rgba(154, 205, 50, 0.95), rgba(255, 255, 0, 0.8));
+    justify-content: space-evenly;
+    text-align: center;
+    height: 50%;
+    border: 2px solid black;
+    padding-bottom: 20px;
+}
+
+.slideshow > div {
+    width: 50%;
+    font-size: 125%;
+}
+
+.moveButtons {
+    display: flex;
+    border: 2px solid black;
+    margin: 10px 0px;
+    background-color: #FFED4D;
+    justify-content: space-around;
+    padding: 10px;
+    margin: 50, 50px;
+    text-align: space;
+}
+
+.timeline {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    background-color: #FFED4D;
+    border: 2px solid black;
+    padding-top: 10px;
+    margin: 10px 0px;
+}
+
+
+.line {
+    height: 5px;
+    background:black;
+    width: 70%;
+    padding: 0px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+/* arrow section heavily inspired by https://www.geeksforgeeks.org/how-to-create-custom-arrows-for-your-website-using-html-and-css/ */
+
+.left,
+.right {
+    width: 40px;
+    height: 40px;
+    margin-left: -50px;
+    margin-right: -50px;
+    margin-top:8px;
+    box-shadow: -4px 4px 0 black;
+}
+
+.startTxt{
+    padding-right: 80px;
+    margin-top: -5px;
+}
+
+.endTxt{
+    padding-left: 80px;
+    margin-top: -5px;
+}
+/* end arrow section */
+
+.left {
+    transform: rotate(45deg);
+}
+
+.right {
+    transform: rotate(-135deg);
+}
+
+.OGinfo {
+    max-width: 90%; 
+    margin: auto;
+    text-align: left;
+}
+
+#container {
+    position: relative;
+    height: 700px;
+    
+    border-radius: 500px;
+    width: 95%;
+    margin: auto;
+    margin-bottom: 25px;
+}
+
+.stage {
+    width: 12%;
+    height: 10%;
+    position: absolute;
+    margin-left: -3px;
+    margin-top: -3px;
+    background-color: #FFED4D;
+    border: 3px solid black;
+    border-radius: 50px;
+}
+
+#mainInfo {
+    position: absolute;
+    top: 30%;
+    bottom: 30%;
+    left: 35%;
+    right: 35%;
+    height: 40%;
+    background-color:  #fae634;
+    border: 3px solid black;
+
+}
+
+.info > p {
+    width: 80%;
+    font-size: 120%;
+    margin: auto;
+    font-weight: 550;
+}   
+
+.stage > p {
+    font-weight: 600;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    text-align: center;
+}
+
+.stage:hover {
+    background-color: yellow;
+}
+
+#stage1 {
+    top: 5%;
+    left: 45%;
+}
+
+#stage2 {
+    top: 15%;
+    left: 70%; 
+}
+
+#stage3 {
+    top: 45%;
+    left: 80%; 
+}
+
+#stage4 {
+    top: 75%;
+    left: 70%;
+}
+
+#stage5 {
+    top: 85%;
+    left: 45%;
+}
+
+#stage6 {
+    top: 75%;
+    left: 18%;
+}
+
+#stage7 {
+    top: 45%;
+    left: 8%;
+}
+
+#stage8 {
+    top: 15%;
+    left: 18%;
+}
+
+.headerSection {
+    display: flex;
+    justify-content: center;
+}
+
+.headerSection > h1 {
+    height: 40px;
+}
+
+.spinny {
+    animation-name: spin;
+    animation-iteration-count: infinite;
+    animation-duration: 0.8s;
+    animation-timing-function: linear;
+}
+
+.blackyellow {
+    animation-name: blackyellow;
+    animation-iteration-count: infinite;
+    animation-duration: 2s;
+    padding:20px;
+    min-width: 300px;
+}
+
+.sushiTrainSection {
+    position: relative;
+    height: 900px;
+}
+
+.plates {
+    position: absolute;
+    animation-name: sushiTrain;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-duration: 16s;
+    height: 300px;
+    width: 400px;
+    border-radius: 100px;
+    text-align: center;
+    border: 2px solid black;
+}
+
+.plates p {
+    margin-top: 0px;
+    margin: auto;
+    padding: 15px;
+    font-size: 120%;
+}
+
+.pause {
+    animation-play-state: paused;
+}
+
+#plates2{
+    animation-delay: -4s;
+}
+
+#plates3{
+    animation-delay: -8s;
+}
+
+#plates4{
+    animation-delay: -12s;
+}
+
+@keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(720deg);}
+}
+
+@keyframes sushiTrain {
+    /* bottom left */
+    0%{background-color: yellow; top:95%; left:5%; margin-top: -300px; margin-left: 0px;}
+    /* top left  */
+    20%{background-color: yellow; top:5%; left: 5%; margin-top: 0px; margin-left: 0px;}
+    /* top right */
+    50%{background-color: yellow; top:5%; left:95%; margin-top: 0px; margin-left: -400px;}
+    /* bottom right */
+    70%{background-color: yellow; top:95%; left:95%; margin-top: -300px; margin-left: -400px;}
+    /* bottom left */
+    100%{background-color: yellow; top:95%; left: 5%; margin-top: -300px; margin-left: 0px;}
+}
+
+@keyframes blackyellow {
+    0%{background-color: yellow; color: black; border: 1px solid black;}
+    50%{background-color: black; color: yellow; border: 1px solid yellow;}
+    100%{background-color: yellow; color: black; border: 1px solid black;}
+}
+
+#EasterEgg{
+    position: fixed;
+    top: 0;
+    left: 0;
+    font-size: 120%;
+    font-weight: 700;
+}
+
+ul > li > a:link {
+    text-decoration: underline;
+}
+
+.research {
+    width: 100%;
+    text-align: left;
+    padding-left: 50px;
+}

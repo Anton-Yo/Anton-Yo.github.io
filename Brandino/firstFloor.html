@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>The Brandino</title>
+<link href="brandino-styles.css" rel="stylesheet"/>
+<script src="js/jquery.js"></script>
+<script src="js/notebookHTML.js"></script>
+<script src="js/notebook.js"></script>
+<script src="js/ping.js"></script>
+<script src="js/preload.js"></script>
+<script>
+
+
+$(document).ready(function() { 
+
+    // let name = localStorage.getItem("name"); 
+    $("#character").html("Upper Deck");
+    $("#backButton").hide();
+
+    if(localStorage.getItem("FFVisited")) {
+        $("#text").html("Where should I go to next?")
+    }
+ 
+    if(localStorage.getItem("CookVisited") == null) { //if player's first time in scene, create interview checks
+        localStorage.setItem("CookVisited", false);
+        localStorage.setItem("GunnerVisited", false);
+        localStorage.setItem("FMVisited", false);
+        localStorage.setItem("QuizVisited", false);
+        localStorage.setItem("AWVisited", false);
+        localStorage.setItem("DiceVisited", false);
+        localStorage.setItem("chat", false);
+        localStorage.setItem("StoreroomVisited", false);
+        localStorage.setItem("FFVisited", true);
+    }
+
+    $("#backButton").on("click", function() {
+        window.location = 'IntroPage3.html'
+    })
+
+    $(document).on({ // add animation to door class
+        mouseenter: function() {
+            $(this).addClass('pulse');
+           
+        },
+        mouseleave: function() {
+            $(this).removeClass('pulse');
+        }
+    }, '.door');
+
+    $(".door, .pirate").click( function() {
+    
+        if($(this).attr("id") == "firstMateDoor") {
+            localStorage.setItem("playPing", true)
+            localStorage.setItem("playCreak", false)
+            window.location = "FirstMateInterview.html";
+        }
+
+        if($(this).attr("id") == "gunnerDoor") {
+            localStorage.setItem("playPing", true)
+            localStorage.setItem("playCreak", false)
+            window.location = "GunnerInterview.html";
+        }
+
+        if($(this).attr("id") == "bottomLevelDoor") {  
+            localStorage.setItem("playCreak", true)  
+            localStorage.setItem("playPing", false)  
+            window.location = "SecondFloor.html";
+        }
+    }) 
+
+});
+
+</script>
+</head>
+<body>
+
+<div id="stage"> 
+
+    <!-- <h2 id="char-interview">Upper Deck</h2> -->
+
+    <img class="background-image" src="Images/FirstFloor.png">
+    
+    <div id="menuStuff"> </div>
+
+    <div class="door pirate" id="firstMateDoor"> <img src="Images/FirstMate.png"> </div>
+    <div class="door pirate" id="gunnerDoor">  <img src="Images/Gunner.png"> </div>
+    <div class="door" id="bottomLevelDoor"> <img src="Images/Door.png"> </div>
+    
+    <div id="dialogueBox" class="bTest"> 
+        <div id="entireBox">
+            <div id="dialogueHeader"> <h2 id="character"> </h2>  </div>
+            <div id="text"> Where should I go to first? </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

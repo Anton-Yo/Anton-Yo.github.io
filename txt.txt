@@ -1,0 +1,60 @@
+Phoenix one contributions:
+
+ - Producer for the game
+ - Audio SFX
+ - Coding enemies
+ - Implementing Controller support
+ - Level select screen
+ - UI development
+ - QA & bug testing
+ - conducting a few playtests
+
+ - Implemented and tested controller support using Unity's new input system
+
+
+We only make soup contributions:
+- Coded ingredient spawner and 3 different forms of movement
+- implemented handling of collisions, and updating the docket with the ingredients obtained.
+- Created and designed each UI element, using artist's sprites where needed.
+
+Tree game contributions:
+- Did UI of game and each menu
+- Implemented the audio simply
+- Implemented the upgrade system
+- Added shovel removal 
+
+Protect the presidevs contributions:
+- Animated the monkey
+- Implemented audio to some elements
+- Coded the monkey to throw projectiles to sync with the animation.
+- Assisted with UI 
+
+
+Procedural generation project.
+ - Used a binary partitioning algorithm to procedurally generate a dungeon.
+ - Generates rooms of customisable size.
+ - Rooms get connected by paths.
+ - Implmented DEBUG tools.
+ - Implemented camera to move and zoom in and out of the scene.
+ - conducted playtesting to identify problems and evaluate the effectiveness of the tool.
+ - produced a report on the project.
+
+Beach Chilling work:
+ - Did the audio manager
+ - Edited and record
+
+Brandino:
+ - Created a browser based murder mystery game inspired by Lucas Pope's Obra Dinn
+ - Used html, css and jquery. 
+ - Created a spam button press, quiz and 2 round dice game.
+ - Utilised browser's local storage to store player data between html pages.
+ - Created a notebook that auto updates information with player progress, using local storage to store ids. Additionally, player's can store custom notes which also carry between scenes with lcoal storage.
+
+ Bananas:
+ - The bananas go brrr.
+
+ To-do-list:
+ - TEST ON LAPTOP Fix main page to scale with screen size somewhat, TEST WITH DIFFERENT BROWSERs
+ - FIXED SPILL OUT, TEXT ON LAPTOP Fix the paragraph spilling out, especially for P1 page.
+ - ADDED WEBSITE AS PROJECT Maybe add website as a project itself
+ - add source to banana

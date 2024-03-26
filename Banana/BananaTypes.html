@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Banana Website</title>
+<link href="banana-styles.css" rel="stylesheet" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+$(document).ready(function() { 
+    $("#weird").hide();
+
+    $("#revealButton").click(function(e) {
+        $("#hider").hide();
+        $("#weird").show();
+    })
+
+
+})
+
+</script>
+</head>
+<body class="greenCover">
+
+<!-- Header -->
+<section> 
+    <h1 class="title"> Types Of Banana </h1>
+</section>
+
+<!-- Section 1 -->
+<section class="clearfix">
+
+    <div class="bananaTypeBox">
+        <h2> Cavendish  </h2>
+        <figure>
+            <a href="https://unsplash.com/photos/VI2rIoZUrks?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink" target="_blank"> <img class="typesImg" src="Images/BananaOnGrey.jpg" alt="Cavendish Bananas"> </a> 
+        </figure>
+        <p> This good looking, yummy and easy to grow banana, is the most popular banana worldwide. A classic simple banana.</p>
+    </div>
+
+    <div class="bananaTypeBox">
+        <h2> Lady Finger </h2>
+        <figure>
+            <a href="https://favpng.com/png_view/fruit-banana-lady-finger-banana-eating-food-fruit-png/1kVR19WS"> <img class="typesImg" src="Images/ladyfinger.png" alt="Lady Finger Banana"></a>
+        </figure>
+        <p> Lady finger bananas are both smaller and sweeter than regular bananas and don’t go brown when cut.</p>
+    </div>
+
+    <div class="bananaTypeBox">
+        <h2> Manzano  </h2>
+        <figure>
+            <a href="https://www.producemarketguide.com/sites/default/files/manzano-banana_variety-page.png"> <img class="typesImg" src="https://www.producemarketguide.com/sites/default/files/manzano-banana_variety-page.png" alt="Manzano Banana"></a>
+        </figure>
+        <p> Also known as the apple banana, this small and thick skinned banana is said to taste kind of like an apple. </p>
+    </div>
+</section>
+
+<!-- Secret Section -->
+<section id="hider"> 
+    <button id="revealButton"> Click for the weird secret bananas </button>
+</section>
+
+
+<!-- Section 2 -->
+<section id="weird" class="clearfix">
+    
+        <div class="bananaTypeBox">
+            <h2> Red Jamaican  </h2>
+            <figure>
+                <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Red_banana_in_Tanzania_0196_Nevit.jpg/1200px-Red_banana_in_Tanzania_0196_Nevit.jpg"> <img class="typesImg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Red_banana_in_Tanzania_0196_Nevit.jpg/1200px-Red_banana_in_Tanzania_0196_Nevit.jpg" alt="Red Jamaican Banana"></a>
+            </figure>
+
+        <p> This unnatural but alluring red banana apparently tastes similar to a normal banana, and indeed it is still yellow on the inside! </p>
+    </div>
+
+    <div class="bananaTypeBox">
+        <h2> Blue Java </h2>
+            <figure>
+                <a href="https://i.etsystatic.com/24749624/r/il/f2d0fe/2615770350/il_1588xN.2615770350_izq6.jpg"> <img class="typesImg" src="https://i.etsystatic.com/24749624/r/il/f2d0fe/2615770350/il_1588xN.2615770350_izq6.jpg" alt="Blue Java"></a>
+            </figure>
+
+        <p> These bananas are slightly blue and are said to have the consistency and taste of vanilla ice cream!</p>
+    </div>
+
+    <div class="bananaTypeBox">
+        <h2> Rhino horn </h2>
+            <figure>
+                <a href="https://i.etsystatic.com/29088823/r/il/382722/3338636828/il_570xN.3338636828_ioa7.jpg"> <img class="typesImg" src="https://i.etsystatic.com/29088823/r/il/382722/3338636828/il_570xN.3338636828_ioa7.jpg" alt="Rhino Horn banana"></a>
+            </figure>
+
+        <p> These bananas originating from Africa can grow insanely long, up to 60cm in length. </p>
+    </div>
+
+</section>
+
+<!-- Footer -->
+
+<footer> 
+    
+    <p> Navigation </p>
+
+    <nav> 
+                <a href=index.html> Homepage</a>
+                <a href=BananaOrigin.html> History</a> 
+                <a href=BananaLife.html> Lifecycle</a> 
+                <a href=BananaTypes.html> Types</a> 
+                <a href=BananaFacts.html> Cool Facts</a> 
+
+    </nav>
+
+
+</footer>
+
+</body>
+</html>
