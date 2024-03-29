@@ -101,10 +101,7 @@ h3 {
     display: inline-flex;  
     text-align: center;
     color: black;
-    /* background-color: red; */
 }
-
-
 
 .clickable {
     cursor: pointer;
