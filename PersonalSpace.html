@@ -40,35 +40,46 @@
         </div>
     </nav>
 
-    <div class="wrapper red-background">
+    <div class="wrapper white-text" id="p1-background">
        
         <button class="clickable" id="back-button"><img src="Images/back.png" id="back-button-img"> </button>
-        <h2 class="info-title" id="soup-title"> We Only Make Soup </h2>
+        <h2 class="info-title white-text"> Personal Space </h2>
         
         <div class="left-side">
             <p class="project-page-desc"> 
-                We only make soup is a simple arcade-style game where the player shoots knives against unwanted ingredients, only allowing ingredients needed by the current recipe to reach the pot.
-                This game was developed over 48 hours in <a href="https://itch.io/jam/pixel-jam-2024/results" class="in-text-link" target="_blank"> Pixel Pasture's Game Jam. </a>
-                This game jam included a few large teams with more industry experience.
-                As a result, we were proud to come 6th out of 22 teams. Play on <a href="https://lstandsforwinner.itch.io/we-only-make-soup" class="in-text-link" target="_blank"> itch.io. </a>
+                In Personal Space, the player must navigate a small procedurally generated galaxy while avoiding spaceships trying to enter your atmosphere. A bit of a bizarre theme, but the theme was Re-Entry, so why not play as the planet trying to avoid that very thing?
+                The only way to escape? Blow up the sun to create a black hole. 
+                <br><br>
+                This game was developed over 5 days in <a href="https://itch.io/jam/mq-reentry-game-jam" class="white-text-link" target="_blank"> Macquarie University's Re-entry Game Jam</a>.
+                For the second year in a row, my team and I won the People's Choice award.
+                Play on <a href="https://lstandsforwinner.itch.io/personal-space" class="white-text-link" target="_blank"> itch.io. </a>
             </p>
 
             <h4> My Contributions: </h4>
             <ul class="small-contribution-list">
-                <li> Lead Programmer - Handled the majority of scripting
+                <li> Creative Director & Producer
                     <ul> 
-                        <li> Implemented 3 different movements patterns for ingredients, Straight, Wiggle and Curve </li> 
-                        <li> Handled collisions of ingredients and the soup pot </li>
-                        <li> Implemented a system to update the docket icons with ingredients obtained. As well as swapping out the docket sprite on a completed recipe. </li>
-                        <li> Added ability for some recipes to randomise ingredients to increase gameplay variety </li>
-                        <li> Used static string file to easily add new recipes throughout development </li>
+                        <li> I came up with the subversive take on the theme and brainstormed it with the team. I was then responsible for maintaining the project scope and vision, while managing the workloads of the other team members  </li> 
                     </ul>
                 </li>
                 
-                <li> Developing UI 
+                <li> Procedural Generation 
                     <ul> 
-                        <li> Designed the UI of the in-game, start and screens using sprites from team artist </li> 
-                        <li> Implemented most of the UI functionality, e.g start/stop game, score </li>
+                        <li> Having completed another project on procedural generation, I decided a procedurally generated galaxy would be a good idea. In a Game Jam.
+                             Of course, some compromises had to be made, for simplicity and for the game's overall goal of finding the sun </li> 
+                        <li> In the end, I wrote a generation script to create a 360 x 360 grid and populate it with planets of various sizes, and asteroid fields of varying scale/rotation </li>
+                        <li> The most difficult part of this generation was preventing the astral bodies from intercepting each other. I checked for objects in a scaled circle around the generated spawn point for other objects, and re-randomised if they intercepted </li>
+                        <li> Desginated the player spawn point as one of the outer quadrants of the near the bounds of the play area </li>
+                        <li> The script spawns objects around the sun object, which is always at 0,0 </li>
+                    </ul>
+                </li>
+
+                <li> Smaller Tasks
+                    <ul> 
+                        <li> Implemented the enemy ship spawn system and player movement </li> 
+                        <li> Sourced and implemented the audio, using 3D spatialised audio for the spaceship explosions </li>
+                        <li> Created particles effects for ship explosion and planet movement </li>
+                        <br>
                     </ul>
                 </li>
             
@@ -76,8 +87,8 @@
         </div>
         
         <div class="right-side black-border">
-            <img class="page-img" id="top-img" src="Images/SoupGameplay.png">
-            <img class="page-img" id="bottom-img" src="Images/SoupTitle.png">
+            <img class="page-img" id="top-img" src="Images/ProcGenPSpace.png">
+            <img class="page-img" id="bottom-img" src="Images/PlayingPSpace.PNG">
         </div>
 
         

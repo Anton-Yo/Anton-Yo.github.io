@@ -40,35 +40,40 @@
         </div>
     </nav>
 
-    <div class="wrapper red-background">
+    <div class="wrapper" id="brandino-background">
        
         <button class="clickable" id="back-button"><img src="Images/back.png" id="back-button-img"> </button>
-        <h2 class="info-title" id="soup-title"> We Only Make Soup </h2>
+        <h2 class="info-title"> Basement Game </h2>
         
         <div class="left-side">
             <p class="project-page-desc"> 
-                We only make soup is a simple arcade-style game where the player shoots knives against unwanted ingredients, only allowing ingredients needed by the current recipe to reach the pot.
-                This game was developed over 48 hours in <a href="https://itch.io/jam/pixel-jam-2024/results" class="in-text-link" target="_blank"> Pixel Pasture's Game Jam. </a>
-                This game jam included a few large teams with more industry experience.
-                As a result, we were proud to come 6th out of 22 teams. Play on <a href="https://lstandsforwinner.itch.io/we-only-make-soup" class="in-text-link" target="_blank"> itch.io. </a>
+                Basement game is a 2.5D automation game in which you must create elements by 'magic', or in reality, using scientific machines to create a production line.
+                It was developed over the course of two weeks as part of <a href="https://itch.io/jam/pirate" class="in-text-link" target="_blank"> Pirate Software's Game Jam</a>.
+                I acted as an on-call developer role during this game jam, employing my expertise in a couple different areas and learning how to better use Unity's animator. 
+                Play on <a href="https://lstandsforwinner.itch.io/basement-game" class="in-text-link" target="_blank"> itch.io. </a>
             </p>
 
             <h4> My Contributions: </h4>
             <ul class="small-contribution-list">
-                <li> Lead Programmer - Handled the majority of scripting
+                <li> Animation
                     <ul> 
-                        <li> Implemented 3 different movements patterns for ingredients, Straight, Wiggle and Curve </li> 
-                        <li> Handled collisions of ingredients and the soup pot </li>
-                        <li> Implemented a system to update the docket icons with ingredients obtained. As well as swapping out the docket sprite on a completed recipe. </li>
-                        <li> Added ability for some recipes to randomise ingredients to increase gameplay variety </li>
-                        <li> Used static string file to easily add new recipes throughout development </li>
+                        <li> Implemented animation for 7 different machines </li> 
+                        <li> Used Unity's animator to manipulate gameobjects and particle systems to create natural looking animations </li>
+                        <li> Implemented a lightbulb on each machine, using lighting/emissive materials to create visual feedback for player </li>
+
                     </ul>
                 </li>
                 
-                <li> Developing UI 
+                <li> Audio
                     <ul> 
-                        <li> Designed the UI of the in-game, start and screens using sprites from team artist </li> 
-                        <li> Implemented most of the UI functionality, e.g start/stop game, score </li>
+                        <li> Sourced and implemented all the audio components, with pitch variation </li>
+                    </ul>
+                </li>
+
+                <li> Programming
+                    <ul> 
+                        <li> Implemented the objective system, which reads objectives from a JSON file, and recognises when the objective has been met </li>
+                        <li> Added simple camera movement </li> 
                     </ul>
                 </li>
             
@@ -76,8 +81,8 @@
         </div>
         
         <div class="right-side black-border">
-            <img class="page-img" id="top-img" src="Images/SoupGameplay.png">
-            <img class="page-img" id="bottom-img" src="Images/SoupTitle.png">
+            <img class="page-img" id="top-img" src="Images/Missing.png">
+            <img class="page-img" id="bottom-img" src="Images/Missing.png">
         </div>
 
         
