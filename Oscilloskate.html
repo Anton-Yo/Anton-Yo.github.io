@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+<title> Anton's Website </title>
+<link href="styles.css" rel="stylesheet"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<script>
+    
+    $(document).ready(function(){
+        $(".wrapper").css("display", "block");
+
+        $("#itch-link")
+        .on("mouseenter", function()
+        {
+            document.getElementById("itch-img").src = "Images/itchHover.png";
+        })
+        .on("mouseleave", function()
+        {
+            document.getElementById("itch-img").src = "Images/itch.png";
+        })
+
+        $("#back-button").on("click", function()
+        {
+            window.location.href = "index.html";
+        })
+
+    })
+
+</script>
+
+<body>
+
+    <nav>
+        <a id="name-title" href="index.html"> Anton Arens </a>
+        <div id="navigation-icons">
+            <a id="itch-link" href="https://itch.io/profile/soggytest" target="_blank"> <img class="icon" id="itch-img" src="Images/itch.png" > </a>
+            <a id="github-link" href="https://github.com/Anton-Yo" target="_blank"> <img class="icon" id="github-img" src="Images/Github.png" > </a>
+        </div>
+    </nav>
+
+    <div class="wrapper" id="oscilloskate-background">
+       
+        <button class="clickable" id="back-button"><img src="Images/back.png" id="back-button-img"> </button>
+        <h2 class="info-title"> Oscilloskate </h2>
+        
+        <div class="left-side">
+            <p class="project-page-desc"> 
+                Oscilloskate invites the player to track and follow a wavelength, displayed on the patented L Stands for Winner Oscilloscope. 
+                The oscilloscope's wavelength swaps between analog, static and digital mode adjusting the music accordingly, keeping the player on their toes. 
+                This game was developed over 48 hours for the Macquarie Computing Society Game Jam (2024) but unfortunately had a last minute bug and missed submission.
+                Play on <a href="https://lstandsforwinner.itch.io/we-only-make-soup" class="in-text-link" target="_blank"> itch.io. </a>
+            </p>
+
+            <h4> My Contributions: </h4>
+            <ul class="small-contribution-list">
+                <li> Movement Programming
+                    <ul> 
+                        <li> Implemented the two movement modes and the ability to swap between them </li> 
+                        <li> Used lerps to create a smooth zoom in of the camera </li>
+                    </ul>
+                </li>
+                
+                <li> Audio
+                    <ul> 
+                        <li> Created a grind sound effect to fade in/out according to the player's contact with the wave </li> 
+                        <li> Smoothly adjusted the music track when the wavelength changes (mostly) </li>
+                        <li> Added a BGM and SFX volume slider to the main menu </li>
+                    </ul>
+                </li>
+            
+            </ul>
+        </div>
+        
+        <div class="right-side black-border">
+            <img class="page-img" id="top-img" src="Images/SoupGameplay.png">
+            <img class="page-img" id="bottom-img" src="Images/SoupTitle.png">
+        </div>
+
+        
+       
+    </div>
+
+
+</body>
+
+
+
+
+</html>

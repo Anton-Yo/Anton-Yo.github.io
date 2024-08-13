@@ -405,6 +405,10 @@ header {
     background-color: rgba(252, 108, 132, 0.795);
 }
 
+#oscilloskate-background {
+    background-color: rgba(52, 215, 221, 0.486);
+}
+
 .white-text {
     color: white;
 }
